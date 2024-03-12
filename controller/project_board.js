@@ -74,6 +74,7 @@ exports.getBoardDetail = async (req, res) => {
         const getBoardDatail = await Board.findOne({
             order: [["id", "DESC"]],
             where: { id: Number(id) },
+            include: [{ model: User, attributes: ["user_name"] }],
         });
 
         let is_mine = false;

@@ -166,7 +166,7 @@ exports.getMyTeamBoard = async (req, res) => {
         // 해당 프로젝트에 참여 중인 모든 팀원의 정보를 찾기
         const projectMembers = await ProjectMember.findAll({
             where: { projectId: projects.map((project) => project.projectId) },
-            include: { model: User, attributes: ["user_name"] }, // 멤버의 이름을 가져오기 위해 User 모델을 include
+            include: [{ model: User, attributes: ["user_name"] }], // 멤버의 이름을 가져오기 위해 User 모델을 include
         });
 
         // 각 팀원별로 프로젝트의 보드를 조회하고 결과를 담을 배열 초기화
@@ -175,28 +175,23 @@ exports.getMyTeamBoard = async (req, res) => {
         // 각 팀원별로 프로젝트의 보드 조회
         for (let j = 0; j < projects.length; j++) {
             for (let i = 0; i < projectMembers.length; i++) {
-                const member = projectMembers[i];
                 const getBoardResult = await Board.findAll({
-                    where: { projectId: projects[j].projectId, userId: projectMembers[i].id },
+                    where: { projectId: projects[j].projectId, userId: projectMembers[i].userId },
+                    include: [{ model: Project }],
                 });
-                for (let boardResult of getBoardResult) {
-                    const projectImg = await Project.findOne({
-                        where: { id: projects[j].projectId },
-                        attributes: ["project_img", "project_name"],
-                    });
-
+                for (result of getBoardResult) {
                     const board = {
-                        deadline: boardResult.deadline,
-                        description: boardResult.description,
-                        id: boardResult.id,
-                        projectId: boardResult.projectId,
-                        status: boardResult.status,
-                        title: boardResult.title,
-                        userId: boardResult.userId,
-                        user_name: member.user.user_name,
-                        project_img: projectImg.project_img,
-                        updatedAt: boardResult.updatedAt,
-                        project_name: projectImg.project_name,
+                        deadline: result.deadline,
+                        description: result.description,
+                        id: result.id,
+                        projectId: result.projectId,
+                        status: result.status,
+                        title: result.title,
+                        userId: result.userId,
+                        user_name: projectMembers[i].user.user_name,
+                        project_img: result.project.project_img,
+                        updatedAt: result.updatedAt,
+                        project_name: result.project.project_name,
                     };
                     teamBoards.push(board);
                 }

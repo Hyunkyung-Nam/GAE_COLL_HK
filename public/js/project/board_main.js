@@ -54,10 +54,20 @@ function clickToggle(e) {
                 div.classList.add("flex");
                 div.classList.add("justify-between");
                 div.classList.add(".align-center");
+                if (getProjectResult.member[i].user_img === null || getProjectResult.member[i].user_img === "") {
+                    imgPath = "../../../public/img/people-group-solid.svg";
+                } else if (
+                    getProjectResult.member[i].user_img.includes("http://") ||
+                    getProjectResult.member[i].user_img.includes("https://")
+                ) {
+                    imgPath = getProjectResult.member[i].user_img;
+                } else {
+                    imgPath = `../../../public/uploads/profile/${getProjectResult.member[i].user_img}`;
+                }
                 div.innerHTML = `
                 <button value="${getProjectResult.member[i].id}" class="modal-btn">   
                     <div style="width:50%;">
-                        <img src = "../../../public/uploads/profile/${getProjectResult.member[i].user_img}" style="width:30px;height:30px; border-radius:5px"/>
+                        <img src = "${imgPath}" style="width:30px;height:30px; border-radius:5px"/>
                     </div>
                     <div style="width:50%;">
                         <span>${getProjectResult.member[i].user_name}</span>

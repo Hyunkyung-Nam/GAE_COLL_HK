@@ -1,6 +1,7 @@
 /* 화살표 함수 */
 const label = document.querySelector(".status_modify");
 const options = document.querySelectorAll(".optionItem");
+let projectMember = [];
 
 // 클릭한 옵션의 텍스트를 라벨 안에 넣음
 const handleSelect = (item) => {
@@ -12,14 +13,16 @@ options.forEach((option) => {
     option.addEventListener("click", () => handleSelect(option));
 });
 
-// 라벨을 클릭시 옵션 목록이 열림/닫힘
-// label.addEventListener("click", () => {
-//     if (label.parentNode.classList.contains("active")) {
-//         label.parentNode.classList.remove("active");
-//     } else {
-//         label.parentNode.classList.add("activxe");
-//     }
-// });
+const modal = document.querySelector("#dialog");
+const userSelectModal = document.querySelector("#selectMember");
+const selectMemberForm = document.querySelector("#selectMemberForm");
+
+function showModal(event) {
+    modal.showModal();
+}
+function showUserSelectModal(event) {
+    userSelectModal.showModal();
+}
 const token = localStorage.getItem("token");
 const ids = document.location.href.split("project/board_content/");
 const board_id = ids[1];
@@ -35,9 +38,10 @@ const board_id = ids[1];
         });
         //deadline, userId, projectId, status, title, description
         console.log("보드", getBoardDetail.data.result);
-        const { deadline, userId, projectId, status, title, description } = getBoardDetail.data.result.data;
+        const { deadline, user, userId, projectId, status, title, description } = getBoardDetail.data.result.data;
 
-        console.log(deadline, userId, projectId, status, title, "설명", description);
+        document.getElementById("new-work-member").textContent = user.user_name;
+        document.getElementById("new-work-member").value = userId;
 
         const getProjectName = await axios({
             method: "POST",
@@ -48,77 +52,44 @@ const board_id = ids[1];
         });
 
         const { project_name, member } = getProjectName.data.result;
-        const boardManager = document.getElementById("boardManager");
 
-        for (let i = 0; i < member.length; i++) {
-            const optionEl = document.createElement("option");
-            optionEl.value = member[i].user_name;
-            optionEl.textContent = member[i].user_name;
-            optionEl.className = `${member[i].id}`;
-            // console.log("아이디", member[i].user_name, member[i].id, optionEl.className);
-            boardManager.appendChild(optionEl);
-        }
-
-        const getUserName = await axios({
-            method: "POST",
-            url: "/api/user/findInfo",
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-            data: {
-                userId,
-            },
-        });
-
-        console.log(getUserName.data.result.user_name);
-        const { user_name } = getUserName.data.result;
         const deadLine = new Date(deadline);
         const year = deadLine.getFullYear();
         const month = (deadLine.getMonth() + 1).toString().padStart(2, "0"); // 월은 0부터 시작하므로 +1 해줌
         const day = deadLine.getDate().toString().padStart(2, "0"); // 일
         const formattedDate = `${year}-${month}-${day}`;
         document.getElementById("boardDeadline").value = formattedDate;
-        document.getElementById("boardManager").value = user_name;
         document.getElementById("myProject").textContent = project_name;
         document.getElementById("writeExplain").value = description;
         document.getElementById("boardTitle").value = title;
 
-        const circle = document.querySelector("#blue");
-        const statusEl = document.getElementById("pro_status");
-        const bg = document.getElementById("bg");
-        if (status === "planning") {
-            statusEl.textContent = "";
-            statusEl.textContent = "계획중";
-            bg.style.backgroundColor = "hsl(199, 74%, 85%)";
-            circle.style.backgroundColor = "hsl(198, 60%, 70%)";
-        } else if (status === "needFeedback") {
-            statusEl.textContent = "";
-            statusEl.textContent = "피드백 요청";
-            bg.style.backgroundColor = "#f8cfcf";
-            circle.style.backgroundColor = "#f25c5c";
-        } else if (status === "finishFeedback") {
-            statusEl.textContent = "";
-            statusEl.textContent = "피드백 완료";
-            bg.style.backgroundColor = "#d1d0d0";
-            circle.style.backgroundColor = "#504e4e";
-        } else if (status === "suspend") {
-            statusEl.textContent = "";
-            statusEl.textContent = "중단";
-            bg.style.backgroundColor = "#f8d6f8";
-            circle.style.backgroundColor = "purple";
-        } else if (status === "finish") {
-            statusEl.textContent = "";
-            statusEl.textContent = "피드백 완료";
-            bg.style.backgroundColor = "#d1d0d0";
-            circle.style.backgroundColor = "#504e4e";
-        } else if (status === "progress") {
-            statusEl.textContent = "";
-            statusEl.textContent = "진행중";
-            bg.style.backgroundColor = "#f9f9c1";
-            circle.style.backgroundColor = "#eaea5e";
-        } else {
-            statusEl.textContent = "";
-            console.log("작업상태 없음");
+        for (let i = 0; i < member.length; i++) {
+            projectMember.push(member[i]);
+
+            let imgPath = "";
+            if (member[i].user_img === null || member[i].user_img === "") {
+                imgPath = "../../../public/img/user-solid.svg";
+            } else if (member[i].user_img.includes("http://") || member[i].user_img.includes("https://")) {
+                imgPath = member[i].user_img;
+            } else {
+                imgPath = `../../../public/uploads/profile/${member[i].user_img}`;
+            }
+
+            const div = document.createElement("div");
+            div.classList.add("flex");
+            div.classList.add("justify-between");
+            div.classList.add(".align-center");
+            div.innerHTML = `
+            <button value="${member[i].id}" class="modal-btn">   
+                <div style="width:50%;">
+                    <img src = "${imgPath}" style="width:30px;height:30px; border-radius:5px"/>
+                </div>
+                <div style="width:50%;">
+                    <span>${member[i].user_name}</span>
+                </div>
+            </button
+            `;
+            selectMemberForm.appendChild(div);
         }
 
         //보드 댓글 가져오기
@@ -131,7 +102,6 @@ const board_id = ids[1];
             },
         });
 
-        console.log("댓글가져온거", getComments.data.result);
         const boardComments = document.querySelector(".boradComments");
         for (let i = 0; i < getComments.data.result.length; i++) {
             //댓글 작성자 프로필 이미지
@@ -205,6 +175,130 @@ const board_id = ids[1];
     }
 })();
 
+modal.addEventListener("close", (event) => {
+    // event.returnValue는 close이벤트에 대한 리턴 값으로 true를 반환한다.
+    if (modal.returnValue === "planning") {
+        boardStatusUpdate("planning");
+    } else if (modal.returnValue === "progress") {
+        boardStatusUpdate("progress");
+    } else if (modal.returnValue === "needFeedback") {
+        boardStatusUpdate("needFeedback");
+    } else if (modal.returnValue === "finishFeedback") {
+        boardStatusUpdate("finishFeedback");
+    } else if (modal.returnValue === "suspend") {
+        boardStatusUpdate("suspend");
+    } else if (modal.returnValue === "finish") {
+        boardStatusUpdate("finish");
+    }
+});
+modal.addEventListener("close", (event) => {
+    // event.returnValue는 close이벤트에 대한 리턴 값으로 true를 반환한다.
+    if (modal.returnValue === "planning") {
+        boardStatusUpdate("planning");
+    } else if (modal.returnValue === "progress") {
+        boardStatusUpdate("progress");
+    } else if (modal.returnValue === "needFeedback") {
+        boardStatusUpdate("needFeedback");
+    } else if (modal.returnValue === "finishFeedback") {
+        boardStatusUpdate("finishFeedback");
+    } else if (modal.returnValue === "suspend") {
+        boardStatusUpdate("suspend");
+    } else if (modal.returnValue === "finish") {
+        boardStatusUpdate("finish");
+    }
+});
+function boardStatusUpdate(boardStatus) {
+    const statusDiv = document.getElementById("status");
+    let color = "";
+    if (statusDiv.textContent === "계획중") {
+        color = "blue";
+    } else if (statusDiv.textContent === "진행중") {
+        color = "yellow";
+    } else if (statusDiv.textContent === "중단됨") {
+        color = "purple";
+    } else if (statusDiv.textContent === "완료") {
+        color = "green";
+    } else if (statusDiv.textContent === "피드백 요청") {
+        color = "red";
+    } else if (statusDiv.textContent === "피드백 완료") {
+        color = "black";
+    }
+    const statusButton = document.getElementById("status-btn");
+    statusButton.classList.remove(color);
+    const circleDiv = document.getElementById(color);
+    if (boardStatus === "planning") {
+        statusButton.classList.add("blue");
+        circleDiv.id = "blue";
+        statusDiv.textContent = "계획중";
+    } else if (boardStatus === "progress") {
+        statusButton.classList.add("yellow");
+        circleDiv.id = "yellow";
+        statusDiv.textContent = "진행중";
+    } else if (boardStatus === "needFeedback") {
+        statusButton.classList.add("red");
+        circleDiv.id = "red";
+        statusDiv.textContent = "피드백 요청";
+    } else if (boardStatus === "finishFeedback") {
+        statusButton.classList.add("black");
+        circleDiv.id = "black";
+        statusDiv.textContent = "피드백 완료";
+    } else if (boardStatus === "suspend") {
+        statusButton.classList.add("purple");
+        circleDiv.id = "purple";
+        statusDiv.textContent = "중단됨";
+    } else if (boardStatus === "finish") {
+        statusButton.classList.add("green");
+        circleDiv.id = "green";
+        statusDiv.textContent = "완료";
+    }
+}
+userSelectModal.addEventListener("close", (event) => {
+    // event.returnValue는 close이벤트에 대한 리턴 값으로 true를 반환한다.
+    if (userSelectModal.returnValue !== "") {
+        boardJobMebmberUpdate(userSelectModal.returnValue);
+    }
+});
+function boardJobMebmberUpdate(member_id) {
+    document.getElementById("new-work-member").textContent = projectMember.filter(
+        (member) => member.id == member_id
+    )[0]["user_name"];
+    document.getElementById("new-work-member").value = member_id;
+}
+// backdrop 클릭시 닫히는 이벤트 함수
+modal.addEventListener("click", function (event) {
+    /**
+     * target === this 조건으로 close를 한다면 dialog 상자 안에 빈 곳을 클릭해도 닫힌다.(this 바인딩에 주의)
+     * 정확하게 dialog 바깥인 backdrop 클릭시에만 이벤트를 호출하려면 클릭 포인트가
+     * 상자 내부에 있는지를 체크하기 위해 left right top bottom을 확인해야한다.
+     */
+    const target = event.target;
+    const rect = target.getBoundingClientRect();
+    if (
+        rect.left > event.clientX ||
+        rect.right < event.clientX ||
+        rect.top > event.clientY ||
+        rect.bottom < event.clientY
+    ) {
+        modal.close();
+    }
+});
+userSelectModal.addEventListener("click", function (event) {
+    /**
+     * target === this 조건으로 close를 한다면 dialog 상자 안에 빈 곳을 클릭해도 닫힌다.(this 바인딩에 주의)
+     * 정확하게 dialog 바깥인 backdrop 클릭시에만 이벤트를 호출하려면 클릭 포인트가
+     * 상자 내부에 있는지를 체크하기 위해 left right top bottom을 확인해야한다.
+     */
+    const target = event.target;
+    const rect = target.getBoundingClientRect();
+    if (
+        rect.left > event.clientX ||
+        rect.right < event.clientX ||
+        rect.top > event.clientY ||
+        rect.bottom < event.clientY
+    ) {
+        userSelectModal.close();
+    }
+});
 //보내기
 async function editFunc() {
     try {
@@ -213,9 +307,8 @@ async function editFunc() {
         //작업 설명
         const description = document.getElementById("writeExplain").value;
         //상태
-        // const status = document.getElementById("boardStatus").value;
-        const statusKor = document.getElementById("pro_status").textContent;
-        let status = "";
+        const statusKor = document.getElementById("status").textContent;
+        let status = "planning";
         console.log(statusKor);
         if (statusKor === "계획중") {
             status = "planning";
@@ -229,17 +322,12 @@ async function editFunc() {
             status = "finish";
         } else if (statusKor === "진행중") {
             status = "progress";
-        } else {
-            return console.log("status값 없음");
         }
 
         //마감일
         const deadline = document.getElementById("boardDeadline").value;
-        console.log(deadline, status, description, title);
-        // //프로젝트 멤버id = 담당자 id (class이름에 저장)
-        const boardManager = document.getElementById("boardManager");
-        const selectedOption = boardManager.options[boardManager.selectedIndex];
-        const userId = selectedOption.className;
+        const userId = document.getElementById("new-work-member").value;
+        console.log("dfasdfasdfasd", userId);
 
         if (title === "" || title === undefined || title === null) {
             alert("제목을 작성해주세요.");
@@ -269,7 +357,6 @@ async function editFunc() {
                 Authorization: `Bearer ${token}`,
             },
             data: {
-                // title, description, status, deadline, board_id: id, userId
                 title,
                 description,
                 status,
@@ -279,7 +366,7 @@ async function editFunc() {
             },
         });
         if (res.data.success) {
-            alert("일정이 수정되었습니다.");
+            alert("보드가 수정되었습니다.");
             location.reload();
         } else {
             alert("수정에 실패하였습니다.");

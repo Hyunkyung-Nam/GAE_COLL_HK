@@ -6,11 +6,6 @@ const label = document.querySelector(".status_modify");
 const options = document.querySelectorAll(".optionItem");
 let projectMember = [];
 
-// 클릭한 옵션의 텍스트를 라벨 안에 넣음
-const handleSelect = (item) => {
-    label.parentNode.classList.remove("active");
-    label.innerHTML = item.textContent;
-};
 // 옵션 클릭시 클릭한 옵션을 넘김
 options.forEach((option) => {
     option.addEventListener("click", () => handleSelect(option));
@@ -46,6 +41,15 @@ function showUserSelectModal(event) {
             // projectMember.push(member[i]);
             //모달안에 유저 만들어주기!
             projectMember.push(member[i]);
+
+            let imgPath = "";
+            if (member[i].user_img === null || member[i].user_img === "") {
+                imgPath = "../../../public/img/user-solid.svg";
+            } else if (member[i].user_img.includes("http://") || member[i].user_img.includes("https://")) {
+                imgPath = member[i].user_img;
+            } else {
+                imgPath = `../../../public/uploads/profile/${member[i].user_img}`;
+            }
 
             const div = document.createElement("div");
             div.classList.add("flex");

@@ -5,6 +5,15 @@
     pointer-events: auto;
 }
 
+main {
+    padding-top: 140px;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 50px;
+}
 .status_modify {
     margin-top: 0.5vw;
     margin-left: 5vw;
@@ -545,4 +554,206 @@ nav {
 
 .commentBox > div {
     width: 80vw;
+}
+#selectMember {
+    box-sizing: border-box;
+    width: 300px;
+    height: 400px;
+    padding: 30px 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#selectMember form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 20px 10px;
+}
+#selectMember form div {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+#selectMember button {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+}
+#datepicker {
+    width: 100%;
+    height: 100%;
+}
+#status-btn {
+    border: 0;
+    border-radius: 10px;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 10px 10px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.status_txt1 {
+    border-radius: 10px;
+    cursor: pointer;
+}
+.placement_status_new {
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 10px;
+    min-width: 120px;
+    height: 30px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+button {
+    border: 0;
+    background-color: unset;
+}
+
+#bg_blue,
+.blue {
+    background-color: hsl(199, 74%, 85%);
+}
+
+#bg_yellow,
+.yellow {
+    background-color: #f9f9c1;
+}
+
+#bg_purple,
+.purple {
+    background-color: #f8d6f8;
+}
+
+#bg_green,
+.green {
+    background-color: #d2f5d2;
+}
+
+#bg_red,
+.red {
+    background-color: #f8cfcf;
+}
+
+#bg_black,
+.black {
+    background-color: #d1d0d0;
+}
+
+#dialog {
+    width: 300px;
+    height: 400px;
+    padding: 20px 10px 0 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.modal-btn {
+    width: fit-content;
+    padding: 0;
+}
+dialog > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px 20px 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+form > ul {
+    width: 100%;
+}
+form > ul > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.workboard {
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+}
+.flex-direction-column {
+    flex-direction: column;
+}
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+.td1 > input {
+    width: 100%;
+    border: 0;
+    height: 100%;
+    background-color: unset;
+}
+#selectMember {
+    box-sizing: border-box;
+    width: 300px;
+    height: 400px;
+    padding: 30px 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#selectMember form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 20px 10px;
+}
+#selectMember form div {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+#selectMember button {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.circle1 {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+
+    margin-right: 0.5vw;
+}
+.work_managers {
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid;
+    background-color: #ffda31;
+    cursor: pointer;
+}
+
+#submit-btn-box {
+    display: flex;
+    justify-content: end;
 }
