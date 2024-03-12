@@ -178,8 +178,8 @@ function goJobDeatil(projectId, boardId) {
                 tr.addEventListener("click", function () {
                     goProjectPage(myteamLogData[i].projectId, "board_main");
                 });
-                let projectImage = myteamLogData[i].user_img
-                    ? "../../public/uploads/profile/" + myteamLogData[i].user_img
+                let projectImage = myteamLogData[i].project_img
+                    ? "../../public/uploads/project/" + myteamLogData[i].project_img
                     : "../../public/img/people-group-solid.svg";
                 tr.innerHTML = `
                         <td class = "teamTd">
