@@ -321,6 +321,7 @@ async function projectRuleGeneration() {
 
     input.onkeydown = async function (event) {
         if (event.key !== "Enter") return;
+        input.blur();
         const rule = input.value;
         ruleData.push(rule);
         const token = localStorage.getItem("token");
