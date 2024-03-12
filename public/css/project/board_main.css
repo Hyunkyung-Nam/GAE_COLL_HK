@@ -216,27 +216,33 @@ click {
     white-space: nowrap;
 }
 
-#bg_blue {
+#bg_blue,
+.bg_blue {
     background-color: hsl(199, 74%, 85%);
 }
 
-#bg_yellow {
+#bg_yellow,
+.bg_yellow {
     background-color: #f9f9c1;
 }
 
-#bg_purple {
+#bg_purple,
+.bg_purple {
     background-color: #f8d6f8;
 }
 
-#bg_green {
+#bg_green,
+.bg_green {
     background-color: #d2f5d2;
 }
 
-#bg_red {
+#bg_red,
+.bg_red {
     background-color: #f8cfcf;
 }
 
-#bg_black {
+#bg_black,
+.bg_black {
     background-color: #d1d0d0;
 }
 
@@ -248,23 +254,29 @@ click {
     margin-right: 0.5vw;
 }
 
-#blue {
+#blue,
+.blue {
     background-color: hsl(198, 60%, 70%);
 }
 
-#yellow {
+#yellow,
+.yellow {
     background-color: #eaea5e;
 }
-#purple {
+#purple,
+.purple {
     background-color: purple;
 }
-#green {
+#green,
+.green {
     background-color: #328d32;
 }
-#red {
+#red,
+.red {
     background-color: #f25c5c;
 }
-#black {
+#black,
+.black {
     background-color: #504e4e;
 }
 

@@ -3,7 +3,7 @@ let changedBoardId = 0;
 let boardData = [];
 let projectMember = [];
 let selectedMember = undefined;
-let boardStatus = undefined;
+let boardStatus = "planning";
 for (let i = 0; i < toggleDiv.length; i++) {
     toggleDiv[i].addEventListener("click", clickToggle);
 }
@@ -156,9 +156,9 @@ function addJob() {
         </td>
         <td id="td2" class="td2"> 
         <div class="button-wrap">
-          <button type="button" id="bg_blue" id="status-content" class="placement_status_inner" onclick="showModal(event,0)">
-              <div id="blue" class="circle1"></div>
-              <div class="status_txt1">계획중</div>
+          <button type="button" id="add-job-status-content" class="placement_status_inner bg_blue" onclick="showModal(event,0)">
+              <div id="add-job-circle" class="circle1 blue"></div>
+              <div id="add-job-status-txt" class="status_txt">계획중</div>
           </button>
           </div>
       </td>
@@ -180,8 +180,6 @@ function addJob() {
         monthNames: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"], //달력의 월 부분 Tooltip 텍스트
         dayNamesMin: ["일", "월", "화", "수", "목", "금", "토"], //달력의 요일 부분 텍스트
         dayNames: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"], //달력의 요일 부분 Tooltip 텍스트
-        minDate: "-1M", //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
-        maxDate: "+1M", //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
         onSelect: function (dateString) {
             //날짜 선택되었을때 업데이트되게 하기!
             // const boardId = this.id.replace("datepicker", "");
@@ -254,26 +252,28 @@ function showUserSelectModal(event, boardId) {
     changedBoardId = boardId;
     userSelectModal.showModal();
 }
+function changeAddJogStatus(selectedStatus) {
+    console.log(selectedStatus);
+    const beforeColor = switchStatus(boardStatus);
+    console.log("beforeColor.color", beforeColor.color);
+    const switchStatusResult = switchStatus(selectedStatus);
+    console.log("selectedStatus", beforeColor.color);
+    document.getElementById("add-job-status-content").classList.remove(`bg_${beforeColor.color}`);
+    document.getElementById("add-job-status-content").classList.add(`bg_${switchStatusResult.color}`);
+    document.getElementById("add-job-circle").classList.remove(beforeColor.color);
+    document.getElementById("add-job-circle").classList.add(switchStatusResult.color);
+    document.getElementById("add-job-status-txt").textContent = switchStatusResult.status;
+}
 //소켓
 modal.addEventListener("close", (event) => {
     // event.returnValue는 close이벤트에 대한 리턴 값으로 true를 반환한다.
-    if (modal.returnValue === "planning") {
-        changedBoardId === 0 ? (boardStatus = modal.returnValue) : boardStatusUpdate("planning");
-    } else if (modal.returnValue === "progress") {
-        changedBoardId === 0 ? (boardStatus = modal.returnValue) : boardStatusUpdate("planning");
-        boardStatusUpdate("progress");
-    } else if (modal.returnValue === "needFeedback") {
-        changedBoardId === 0 ? (boardStatus = modal.returnValue) : boardStatusUpdate("planning");
-        boardStatusUpdate("needFeedback");
-    } else if (modal.returnValue === "finishFeedback") {
-        changedBoardId === 0 ? (boardStatus = modal.returnValue) : boardStatusUpdate("planning");
-        boardStatusUpdate("finishFeedback");
-    } else if (modal.returnValue === "suspend") {
-        changedBoardId === 0 ? (boardStatus = modal.returnValue) : boardStatusUpdate("planning");
-        boardStatusUpdate("suspend");
-    } else if (modal.returnValue === "finish") {
-        changedBoardId === 0 ? (boardStatus = modal.returnValue) : boardStatusUpdate("planning");
-        boardStatusUpdate("finish");
+
+    if (changedBoardId === 0) {
+        //작업추가인경우
+        changeAddJogStatus(modal.returnValue);
+        boardStatus = modal.returnValue;
+    } else if (modal.returnValue !== "") {
+        boardStatusUpdate(modal.returnValue);
     }
 });
 userSelectModal.addEventListener("close", (event) => {
