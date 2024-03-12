@@ -115,7 +115,6 @@ async function setBoard(now) {
     } else {
         yearMonth = `${String(this_year)}-${String(this_month + 1)}-`;
     }
-    console.log(yearMonth);
     //현재 달의 보드 가져오기
     try {
         const token = localStorage.getItem("token");
@@ -179,7 +178,6 @@ function switchStatus(status) {
 function showMyJob() {
     isSelectedMyJob = true;
     let yearMonth = document.getElementById("openModalBtn").textContent;
-    console.log(typeof yearMonth, yearMonth);
     yearMonth = yearMonth.replace("년 ", "-");
     yearMonth = yearMonth.replace("월", "-");
 
@@ -193,7 +191,6 @@ function showMyJob() {
 function showTeamJob() {
     isSelectedMyJob = false;
     let yearMonth = document.getElementById("openModalBtn").textContent;
-    console.log(typeof yearMonth, yearMonth);
     yearMonth = yearMonth.replace("년 ", "-");
     yearMonth = yearMonth.replace("월", "-");
 
@@ -206,7 +203,6 @@ function showTeamJob() {
 
 function removeBoard(set) {
     let yearMonth = document.getElementById("openModalBtn").textContent;
-    console.log(typeof yearMonth, yearMonth);
     yearMonth = yearMonth.replace("월", "");
     const year = yearMonth.split("년 ")[0];
     const month = yearMonth.split("년 ")[1];
@@ -219,11 +215,9 @@ function goToday() {
     make_calender(new Date(), true);
 }
 function drawBoard(result, yearMonth) {
-    console.log("보드 가져옴!");
     for (let i = 0; i < result.length; i++) {
         const day = Number(result[i].deadline.replace(yearMonth, ""));
         const dayBox = document.getElementById(`td-inner${day}`);
-        console.log(dayBox);
         const newDiv = document.createElement("div");
         newDiv.classList.add("inner");
         const manufactureData = switchStatus(result[i].status);

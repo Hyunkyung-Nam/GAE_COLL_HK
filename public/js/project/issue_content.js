@@ -20,7 +20,6 @@ async function addCommentFunc() {
                 comment,
             },
         });
-        console.log(res.data);
         return location.reload(); // 페이지 새로고침
     } catch (error) {
         console.log(error);
@@ -47,7 +46,6 @@ async function addCommentFunc() {
     // 파일 목록 표시
     if (files !== null && files !== "") {
         fileBox.innerHTML = "";
-        console.log("files 받아온 것:", files);
         const myfile = files.split(",");
         if (myfile && myfile.length > 0) {
             myfile.forEach((file) => {
@@ -159,11 +157,8 @@ async function addCommentFunc() {
                     if (res.status === 200) {
                         // 성공적으로 삭제되면 화면에서 해당 댓글 제거
                         li.remove();
-                        console.log("댓글이 성공적으로 삭제되었습니다.");
                     }
-                } catch (error) {
-                    console.log(error);
-                }
+                } catch (error) {}
             };
 
             //css파일에서 flex랑 디자인 처리
@@ -202,7 +197,6 @@ async function codeBlockFunc() {
 //파일 삭제
 async function deleteFileFunc(event) {
     const fileName = event.target.parentElement.firstChild.textContent;
-    console.log(fileName);
 
     try {
         const res = await axios({
@@ -215,8 +209,6 @@ async function deleteFileFunc(event) {
                 fileName,
             },
         });
-
-        console.log(res);
 
         // 파일 삭제 요청에 성공한 경우에만 해당 파일 제거
         if (res.status === 200) {
@@ -285,7 +277,6 @@ async function saveFunc() {
                 formData.append("issue_files", fileInput.files[i]);
             }
         }
-        console.log(fileInput.files[0]);
 
         const res = await axios({
             method: "patch",
@@ -296,7 +287,6 @@ async function saveFunc() {
             },
             data: formData,
         });
-        console.log(res);
 
         if (!res.data.success) {
             alert("작성자만 수정할 수 있습니다.");
@@ -340,7 +330,6 @@ async function addCommentFunc() {
                 comment,
             },
         });
-        console.log(res.data);
         return location.reload();
     } catch (error) {
         console.log(error);
@@ -360,7 +349,6 @@ async function deleteIssueFunc() {
                 Authorization: `Bearer ${token}`,
             },
         });
-        console.log(res.data);
         if (res.data.success) {
             document.location.href = "/project/issue_main";
         }

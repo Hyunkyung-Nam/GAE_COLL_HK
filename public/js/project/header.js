@@ -10,9 +10,7 @@ const token = localStorage.getItem("token");
             Authorization: `Bearer ${token}`,
         },
     });
-    // console.log("getProjectDate.data", getProjectInfoResult.data);
     const { success, result } = getProjectInfoResult.data;
-    // console.log(typeof result.start_date);
     let stringStartDate = new Date(result.start_date);
     let startYear = stringStartDate.getFullYear();
     let startMonth = stringStartDate.getMonth() + 1;
@@ -42,7 +40,6 @@ const token = localStorage.getItem("token");
     // document.querySelector("#projectEndDate").textContent = `${result.end_date}`;
     document.querySelector(".github_link").href = result.github;
     document.querySelector(".pro_name").textContent = result.project_name;
-    console.log("results", result);
     let imgPath = "";
     if (result.project_img === null || result.project_img === "") {
         imgPath = "../../../public/img/people-group-solid.svg";
@@ -56,7 +53,6 @@ const token = localStorage.getItem("token");
         height: 25,
     });
 
-    console.log("작업상태 변경", result.status);
     const circle = document.querySelector("#blue");
     const status = document.getElementById("pro_status");
     const bg = document.getElementById("bg");
@@ -76,8 +72,6 @@ const token = localStorage.getItem("token");
         status.textContent = "완료";
         bg.style.backgroundColor = "#d2f5d2";
         circle.style.backgroundColor = "#328d32";
-    } else {
-        console.log("일치하는 상태가 없습니다.");
     }
 
     const getDateDiff = (d1, d2) => {
@@ -127,8 +121,6 @@ async function dateEdit() {
             end_date: changeEndDate,
         },
     });
-    // console.log("startYearNum", typeof startYearNum);
-    // console.log("endYearNum", endYearNum);
 
     // 다중 조건문
     if (res.data.success && startYearNum < endYearNum) {
@@ -153,7 +145,6 @@ function openPopup() {
 
 function closePopup() {
     document.getElementById("popup").style.display = "none";
-    console.log("close");
 }
 
 // 변경한 깃허브 링크 서버로 전송,저장
@@ -172,7 +163,6 @@ async function githubSend() {
                 github,
             },
         });
-        console.log(githubLinkResult.data);
         const { result, success } = githubLinkResult.data;
 
         if (success) {
@@ -196,7 +186,7 @@ fiexdPJNameDiv.addEventListener("keydown", function (event) {
     if (event.keyCode === 13) {
         event.preventDefault();
         const fiexdPJName = document.getElementById("pro_name").innerHTML;
-        console.log(fiexdPJName);
+
         axios({
             method: "patch",
             url: "/api/project/update/name",
@@ -205,7 +195,6 @@ fiexdPJNameDiv.addEventListener("keydown", function (event) {
             },
             data: { project_name: fiexdPJName },
         }).then((res) => {
-            console.log("res", res.data);
             if (res.data.success) {
                 alert("프로젝트 이름이 변경되었습니다.");
                 location.reload();
@@ -374,7 +363,6 @@ async function changeStatusToFinishFeed() {
 
 const nowLocated = window.location.pathname;
 const nowLocatedPath = window.location.pathname.substring(9, nowLocated.length);
-console.log(nowLocatedPath);
 
 if (nowLocatedPath === "home") {
     const boldLink = document.getElementById("home");
@@ -400,14 +388,10 @@ async function updateProfileImg() {
     const formData = new FormData();
 
     let imgSelected = false;
-    // console.log("이미지 변경 테스트 전", projectImg);
     if (project_img !== undefined) {
-        console.log("이미지 변경 테스트 후");
         imgSelected = true;
-        console.log(project_img);
         formData.append("project_img", project_img.files[0]);
     }
-    console.log("이미지 변경 테스트 끝", formData);
 
     const projectImgResult = await axios({
         method: "patch",
@@ -419,15 +403,12 @@ async function updateProfileImg() {
         data: formData,
     });
     const { success, result } = projectImgResult.data;
-    console.log(projectImgResult.data);
     if (success) {
         alert("이미지 변경이 완료되었습니다.");
         location.reload();
     } else {
-        console.log(error);
         alert("이미지 변경에 실패하였습니다.");
     }
-    console.log("data: ", userImgResult.data);
 }
 
 function openPopupProfile() {
@@ -436,7 +417,6 @@ function openPopupProfile() {
 
 function closePopupProfile() {
     document.querySelector("#popup2").style.display = "none";
-    console.log("close");
 }
 
 window.onload = function () {

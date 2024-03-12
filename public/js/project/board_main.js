@@ -9,9 +9,7 @@ for (let i = 0; i < toggleDiv.length; i++) {
 }
 function clickToggle(e) {
     const tbody = this.parentNode.parentNode.nextSibling.nextSibling;
-    console.log(tbody);
     tbody.classList.toggle("hidden");
-    console.log(this);
     this.classList.toggle("closeToggle");
 }
 
@@ -82,7 +80,6 @@ function clickToggle(e) {
     }
 })();
 function drawTable(data) {
-    console.log(data);
     const planningTbody = document.getElementById("planning-tbody");
     const progessTbody = document.getElementById("progress-tbody");
     const suspendTbody = document.getElementById("suspend-tbody");
@@ -263,11 +260,8 @@ function showUserSelectModal(event, boardId) {
     userSelectModal.showModal();
 }
 function changeAddJogStatus(selectedStatus) {
-    console.log(selectedStatus);
     const beforeColor = switchStatus(boardStatus);
-    console.log("beforeColor.color", beforeColor.color);
     const switchStatusResult = switchStatus(selectedStatus);
-    console.log("selectedStatus", beforeColor.color);
     document.getElementById("add-job-status-content").classList.remove(`bg_${beforeColor.color}`);
     document.getElementById("add-job-status-content").classList.add(`bg_${switchStatusResult.color}`);
     document.getElementById("add-job-circle").classList.remove(beforeColor.color);
@@ -331,14 +325,10 @@ userSelectModal.addEventListener("click", function (event) {
 });
 //보드 작업담당자 업데이트
 async function boardJobMebmberUpdate(member_id) {
-    console.log("HIHIHIHI");
-    console.log(changedBoardId, member_id);
     try {
         if (changedBoardId === 0) {
         } else {
-            console.log("boardData", boardData);
             const board = boardData.filter((data) => data.id == changedBoardId);
-            console.log("board", board);
             const data = {
                 board_id: changedBoardId,
                 title: board[0].title,
@@ -347,7 +337,6 @@ async function boardJobMebmberUpdate(member_id) {
                 deadline: board[0].deadline,
                 userId: member_id,
             };
-            console.log("data", data);
             const token = localStorage.getItem("token");
             const boardJobMemberUpdateResult = await axios({
                 method: "patch",
@@ -380,7 +369,6 @@ async function boardDeadlineUpdate(board_id, deadline) {
                 deadline,
                 userId: board[0].userId,
             };
-            console.log("data", data);
             const token = localStorage.getItem("token");
             const boardStatusUpdateResult = await axios({
                 method: "patch",
@@ -390,7 +378,6 @@ async function boardDeadlineUpdate(board_id, deadline) {
                 },
                 data,
             });
-            console.log(boardStatusUpdateResult.data);
             if (boardStatusUpdateResult.data.success) {
                 document.location.reload();
             } else {
@@ -404,8 +391,6 @@ async function boardStatusUpdate(status) {
     try {
         if (changedBoardId === 0) {
         } else {
-            console.log("changedBoardId", changedBoardId);
-            console.log("boardData", boardData);
             const board = boardData.filter((data) => data.id == changedBoardId);
 
             const data = {
@@ -416,7 +401,6 @@ async function boardStatusUpdate(status) {
                 deadline: board[0].deadline,
                 userId: board[0].userId,
             };
-            console.log("data", data);
             const token = localStorage.getItem("token");
             const boardStatusUpdateResult = await axios({
                 method: "patch",

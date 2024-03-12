@@ -17,7 +17,6 @@ const tbody = document.querySelector("tbody");
         //issue[i].userId = i번째 이슈 작성자
         for (let i = 0; i < res.data.result.length; i++) {
             const userId = res.data.result[i].userId;
-            console.log("res. userId값: ", res.data.result[i].userId);
 
             const res2 = await axios({
                 method: "POST",
@@ -32,7 +31,6 @@ const tbody = document.querySelector("tbody");
 
             //issue[i].userId를 가진 작성자
             const userName = res2.data.result.user_name;
-            console.log("res2:", res2.data.result);
 
             //[i]번째 이슈글 출력
             const html = `
@@ -91,8 +89,6 @@ const tbody = document.querySelector("tbody");
                 lastPageOfGroup = totalPages;
             }
 
-            // console.log(pageGroup, firstPageOfGroup, lastPageOfGroup);
-
             pageNumberBox.replaceChildren();
 
             for (let i = firstPageOfGroup; i <= lastPageOfGroup; i++) {
@@ -115,7 +111,6 @@ const tbody = document.querySelector("tbody");
             Authorization: `Bearer ${token}`,
         },
     });
-    console.log("re3.data", res3.data);
     const page = res3.data.pagination.page; // 현재 페이지
     const pageSize = res3.data.pagination.pageSize; // limit
     const totalPages = res3.data.pagination.totalPages; // 페이지 전체 개수
@@ -123,7 +118,6 @@ const tbody = document.querySelector("tbody");
 
     // const table = document.querySelectorAll("table");
     const tableBox = document.getElementById("issue-contain-main");
-    console.log("이슈 개수:", totalIssues);
 
     let pageGroup = Math.ceil(page / pageSize); // 페이지 그룹
     //어떤 한 페이지 그룹의 첫번째 페이지 번호 = ((페이지 그룹 - 1) * 한 화면에 보여질 페이지 개수) + 1
@@ -170,8 +164,6 @@ const tbody = document.querySelector("tbody");
 async function searchFunc() {
     const type = document.getElementById("type").value;
     const keyword = document.getElementById("keyword").value;
-
-    // console.log(type, keyword);
 
     async function goToPage(page) {
         const res = await axios({

@@ -6,7 +6,6 @@
             Authorization: `Bearer ${token}`,
         },
     }).then((res) => {
-        console.log("res data결과", res.data);
         const { user_name, id } = res.data.result;
         document.querySelector(".userId").value = id;
         document.querySelector(".writer_box").innerHTML = user_name;
@@ -50,9 +49,6 @@ async function submitFunc() {
             formData.append("issue_files", fileInput.files[i]);
         }
 
-        // console.log("files", fileInput.files[0]);
-        // console.log("formData", formData);
-
         const res = await axios({
             method: "POST",
             url: "/api/project/issue",
@@ -62,7 +58,6 @@ async function submitFunc() {
                 "Content-Type": "multipart/form-data",
             },
         });
-        // console.log(res);
         document.location.href = "issue_main";
     } catch (error) {
         console.error(error);

@@ -213,12 +213,10 @@ exports.getProjectInfo = async (req, res) => {
             where: { projectId: id },
         });
         for (let i = 0; i < getProjectMembertResult.length; i++) {
-            console.log("getProjectMembertResult[i].userId", getProjectMembertResult[i].userId);
             const getUserInfo = await User.findOne(
                 { where: { id: Number(getProjectMembertResult[i].userId) } },
                 { attributes: ["user_name", "user_img"] }
             );
-            console.log(getUserInfo.user_img);
             const data = {
                 user_name: getUserInfo.user_name,
                 user_img: getUserInfo.user_img,
@@ -271,7 +269,6 @@ exports.projectLog = async (req, res) => {
         const getBoardLogResult = await Board.findAll({
             where: { projectId: id },
         });
-        console.log(getBoardLogResult);
         for (let board of getBoardLogResult) {
             const userData = await User.findOne({
                 where: { id: Number(board.userId) },
@@ -289,7 +286,6 @@ exports.projectLog = async (req, res) => {
             };
             teamLog.push(data);
         }
-        console.log("teamLog", teamLog);
         res.json({ success: true, result: teamLog });
     } catch (error) {
         console.log(error);

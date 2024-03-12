@@ -319,32 +319,33 @@ async function projectRuleGeneration() {
     list.appendChild(li);
     input.focus();
 
-    input.onkeydown = async function (event) {
-        if (event.key !== "Enter") return;
-        input.blur();
-        const rule = input.value;
-        ruleData.push(rule);
-        const token = localStorage.getItem("token");
-        try {
-            const response = await axios({
-                method: "PATCH",
-                url: "/api/project/update/rule",
-                data: {
-                    rule: ruleData,
-                },
-                headers: { Authorization: `Bearer ${token}` },
-            });
-            const { success, result } = response.data;
-            if (success) {
-                console.log("규칙 추가 성공 : ", result);
-                location.reload(true);
-            } else {
-                console.log("규칙 추가 실패");
+    input.addEventListener("keypress", async function (e) {
+        if (e.key === "Enter") {
+            input.blur();
+            const rule = input.value;
+            ruleData.push(rule);
+            const token = localStorage.getItem("token");
+            try {
+                const response = await axios({
+                    method: "PATCH",
+                    url: "/api/project/update/rule",
+                    data: {
+                        rule: ruleData,
+                    },
+                    headers: { Authorization: `Bearer ${token}` },
+                });
+                const { success, result } = response.data;
+                if (success) {
+                    console.log("규칙 추가 성공 : ", result);
+                    location.reload(true);
+                } else {
+                    console.log("규칙 추가 실패");
+                }
+            } catch (error) {
+                console.log("규칙 추가 중 에러 발생 : ", error);
             }
-        } catch (error) {
-            console.log("규칙 추가 중 에러 발생 : ", error);
         }
-    };
+    });
 }
 
 //규칙 삭제

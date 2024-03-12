@@ -31,7 +31,6 @@ function showUserSelectModal(event) {
             Authorization: `Bearer ${token}`,
         },
     }).then((res) => {
-        console.log("res data결과", res.data);
         const { project_name, member } = res.data.result;
 
         const myProjectBox = document.getElementById("myProject");
@@ -191,7 +190,6 @@ async function submitFunc() {
         // const status = document.getElementById("boardStatus").value;
         const statusKor = document.getElementById("status").textContent;
         let status = "";
-        console.log(statusKor);
         if (statusKor === "계획중") {
             status = "planning";
         } else if (statusKor === "피드백 요청") {
@@ -204,13 +202,10 @@ async function submitFunc() {
             status = "finish";
         } else if (statusKor === "진행중") {
             status = "progress";
-        } else {
-            return console.log("status값 없음");
         }
 
         //마감일
         const deadline = document.getElementById("boardDeadline").value;
-        console.log(deadline, status, description, title);
         // //프로젝트 멤버id = 담당자 id (class이름에 저장)
 
         if (title === "" || title === undefined || title === null) {

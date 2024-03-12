@@ -66,7 +66,6 @@ function getProjectStatusJob(selectedProjectStatus) {
     }
 }
 function goJobDeatil(projectId, boardId) {
-    console.log(projectId, boardId);
     goBoardContentPage(projectId, boardId);
 }
 
@@ -164,14 +163,13 @@ function goJobDeatil(projectId, boardId) {
                 Authorization: `Bearer ${token}`,
             },
         });
-        console.log("getTeamLogResult.data", getTeamLogResult.data);
         if (getTeamLogResult.data.success) {
             myteamLogData = getTeamLogResult.data.result.sort((a, b) => {
                 if (a.updatedAt > b.updatedAt) return -1;
                 if (a.updatedAt < b.updatedAt) return 1;
                 return 0;
             });
-            console.log("myteamLogData", myteamLogData);
+
             const teamBoardTbody = document.querySelector("#team_board-tbody");
             for (let i = 0; teamBoardTbody.childNodes.length < 5; i++) {
                 const tr = document.createElement("tr");
@@ -236,7 +234,6 @@ function switchStatus(status) {
 
 //프로젝트나 팀 로그 누르면  해당프로젝트 홈으로 이동
 async function goProjectPage(projectId, location) {
-    console.log(projectId, location);
     const token = localStorage.getItem("token");
 
     try {
@@ -311,7 +308,6 @@ function showMoreJob() {
             projectstatus = "finish";
             break;
     }
-    console.log(projectstatus);
     const datas = myjobdataByDate.filter((data) => data.projectStatus === projectstatus);
     if (datas.length > tbody.childNodes.length) {
         for (let i = tbody.childNodes.length; i < datas.length; i++) {

@@ -37,7 +37,6 @@ const board_id = ids[1];
             },
         });
         //deadline, userId, projectId, status, title, description
-        console.log("보드", getBoardDetail.data.result);
         const { deadline, user, userId, projectId, status, title, description } = getBoardDetail.data.result.data;
 
         document.getElementById("new-work-member").textContent = user.user_name;
@@ -149,7 +148,6 @@ const board_id = ids[1];
                         },
                         data: { comment_id: getComments.data.result[i].id },
                     });
-                    console.log(deleteComment.data);
                     if (deleteComment.data.success) {
                         setBox.remove();
                         location.reload();
@@ -309,7 +307,6 @@ async function editFunc() {
         //상태
         const statusKor = document.getElementById("status").textContent;
         let status = "planning";
-        console.log(statusKor);
         if (statusKor === "계획중") {
             status = "planning";
         } else if (statusKor === "피드백 요청") {
@@ -327,7 +324,6 @@ async function editFunc() {
         //마감일
         const deadline = document.getElementById("boardDeadline").value;
         const userId = document.getElementById("new-work-member").value;
-        console.log("dfasdfasdfasd", userId);
 
         if (title === "" || title === undefined || title === null) {
             alert("제목을 작성해주세요.");

@@ -1,11 +1,9 @@
 function openPopup() {
     document.querySelector(".popup-overlay").style.display = "block";
     document.querySelector(".popup-content").style.display = "block";
-    console.log("open");
 }
 
 function closePopup() {
-    console.log("close");
     document.querySelector(".popup-overlay").style.display = "none";
     document.querySelector(".popup-content").style.display = "none";
 }
@@ -87,7 +85,6 @@ async function createProject() {
         },
         data: formData,
     });
-    console.log(careateProjectResponse);
 
     const { success, result, token: newToken } = careateProjectResponse.data;
 
@@ -116,8 +113,6 @@ async function addEmail() {
             email: projectEmail,
         },
     });
-    console.log("emailInviteRespond", emailInviteRespond);
-    console.log("projectEmail: ", projectEmail);
     const { success, result } = emailInviteRespond.data;
 
     if (success) {
@@ -128,13 +123,7 @@ async function addEmail() {
         emailList2.appendChild(listItem);
         alert("프로젝트 멤버를 초대하였습니다.");
         emailInput.value = "";
-    }
-    // } else {
-    //     console.log(result.message);
-    //     if (result.message) {
-    //         alert(result.message);
-    //     }
-    else {
+    } else {
         alert("본인이나 등록되지 않은 사용자는 초대할 수 없습니다.");
     }
 }

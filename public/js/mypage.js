@@ -29,12 +29,17 @@ let type = "";
             ? (document.getElementById("blog").placeholder = "블로그주소를 입력해주세요")
             : (document.getElementById("blog").value = result.blog);
 
+        //프로필 사진 설정
         if (result.user_img === null || result.user_img === "" || result.user_img === undefined) {
             document.getElementById("profileImageDisplay").src = `../../../public/img/user-solid.svg`; //
         } else if (result.user_img.includes("http:") || result.user_img.includes("https://")) {
             document.getElementById("profileImageDisplay").src = result.user_img;
         } else {
             document.getElementById("profileImageDisplay").src = `../../../public/uploads/profile/${result.user_img}`;
+        }
+        //카카오, 구글 로그인이면 회원탈퇴 안보이게 하기
+        if (type === "kakao" || type === "google") {
+            document.getElementById("changePW").classList.add("hidden");
         }
     }
 })();
@@ -204,10 +209,8 @@ async function changeProfile(e) {
         const { success, result } = nameChangeResult.data;
         if (success) {
             //alert("이름 변경이 완료되었습니다");
-            console.log("이름 변경 성공");
         } else {
             //alert("이름 변경에 실패했습니다: " + result);
-            console.log("이름 변경 실패");
         }
         const imgChangeResult = await axios({
             method: "PATCH",
@@ -219,13 +222,6 @@ async function changeProfile(e) {
             },
         });
 
-        if (imgChangeResult.data.success) {
-            // alert("프로필 변경이 완료되었습니다");
-            console.log("이미지 업로드 성공");
-        } else {
-            // alert("프로필 변경이 실패했습니다");
-            console.log("이미지 업로드 실패");
-        }
         if (success || imgChangeResult.data.success) {
             alert("프로필 업데이트에 성공하였습니다.");
         }
