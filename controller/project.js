@@ -22,7 +22,6 @@ exports.createProject = async (req, res) => {
         userId.push(my_id);
         //멤버가 object타입인지 string타입인지 구별 -> 포스트맨 테스트로 인해 처리
         if (typeof member_id === "object" || typeof member_id === "array") {
-            console.log(userId.length);
             for (id of member_id) {
                 userId.push(id);
             }
@@ -46,16 +45,12 @@ exports.createProject = async (req, res) => {
             overview,
             rule: JSON.stringify(rule),
         });
-        console.log("userId", userId);
         //프로젝트 멤버DB에 추가
         for (let i = 0; i < userId.length; i++) {
-            console.log(userId, userId.length);
-            console.log("userId[i]", userId[i]);
             const addProjectMemberResult = await ProjectMember.create({
                 projectId: Number(createProjectResult.id),
                 userId: Number(userId[i]),
             });
-            console.log("addProjectMemberResult");
         }
         //프로젝트 파일 생성
         const createProjectFileResult = await ProjectFile.create({
@@ -444,17 +439,13 @@ exports.updateProjectFile = async (req, res) => {
     const files = req.files;
     const id = req.projectId;
     const { type } = req.body;
-    console.log("type!!!!!!!", type);
     let fileName = [];
     try {
         const getProjectFileResult = await ProjectFile.findOne({
             where: { id },
         });
-        console.log("first", getProjectFileResult[type]);
-        console.log(typeof getProjectFileResult[type]);
         if (JSON.parse(getProjectFileResult[type]) !== null && getProjectFileResult[type] !== "") {
             const beforeFiles = JSON.parse(getProjectFileResult[type]);
-            console.log(typeof beforeFiles, beforeFiles);
             for (let i = 0; i < beforeFiles.length; i++) {
                 fileName.push(beforeFiles[i]);
             }
@@ -462,12 +453,9 @@ exports.updateProjectFile = async (req, res) => {
 
         if (files !== undefined) {
             for (let i = 0; i < files.length; i++) {
-                console.log(files[i].filename);
                 fileName.push(files[i].filename);
             }
         }
-        console.log("fileName", fileName);
-        console.log("1111", JSON.stringify(fileName));
 
         let updateProjectFileResult;
         if (type === "erd") {
@@ -530,9 +518,7 @@ exports.deleteFile = async (req, res) => {
         //파일이 존재하면 삭제
         if (fs.existsSync("./public/uploads/project_file/" + data[Number(project_file)].trim())) {
             fs.unlinkSync("./public/uploads/project_file/" + data[Number(project_file)].trim());
-            console.log("삭제");
         } else {
-            console.log("노삭제");
         }
         //삭제한 파일 배열에서 삭제하고 다시 디비에 저장
         data.splice(Number(project_file), 1);
@@ -586,7 +572,6 @@ async function deleteImg(projectId) {
 //토큰 업데이트 함수
 exports.UpdateToken = async (req, res) => {
     const { projectId } = req.body;
-    console.log(projectId);
     const my_id = req.userId;
     try {
         const token = jwt.sign({ id: my_id, projectId }, process.env.DEVEL_SECRET, {

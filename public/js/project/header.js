@@ -42,7 +42,7 @@ const token = localStorage.getItem("token");
     // document.querySelector("#projectEndDate").textContent = `${result.end_date}`;
     document.querySelector(".github_link").href = result.github;
     document.querySelector(".pro_name").textContent = result.project_name;
-
+    console.log("results", result);
     let imgPath = "";
     if (result.project_img === null || result.project_img === "") {
         imgPath = "../../../public/img/people-group-solid.svg";
