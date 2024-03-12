@@ -46,8 +46,6 @@ const token = localStorage.getItem("token");
     let imgPath = "";
     if (result.project_img === null || result.project_img === "") {
         imgPath = "../../../public/img/people-group-solid.svg";
-    } else if (result.project_img.includes("http://") || result.project_img.includes("https://")) {
-        imgPath = result.project_img;
     } else {
         imgPath = `../../../public/uploads/project/${result.project_img}`;
     }
