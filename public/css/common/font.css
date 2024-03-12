@@ -1,0 +1,134 @@
+/*전체 웹페이지 폰트*/
+.ibm-plex sans kr-regular {
+    font-family: "IBM Plex Sans KR", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+#ui-datepicker-div {
+    z-index: 999 !important;
+    /* top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%); */
+    text-align: center !important;
+}
+#datepicker {
+    background-color: unset !important;
+    border: 0;
+    text-align: center !important;
+    cursor: pointer;
+}
+.datepicker {
+    background-color: unset !important;
+    border: 0;
+    text-align: center !important;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+}
+/*        <link rel="stylesheet" href="../public/css/main.css" />
+        <link rel="stylesheet" href="../public/css/common/font.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet" />
+*/
+/*해당 css에다가 넣기
+body {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}*/
+/*header
+전체적인 폰트 사이즈 : 20px
+logo, mypage(div)
+weight : 50px
+height : 50px 
+개, 콜 : 40px
+a태그 :
+display :flex
+*/
+/*footer    
+전체적인 폰트 사이즈 : 20px
+height : 150px
+*/
+/*전체적인 폰트 사이즈
+제목 : 25px
+본문(리스트, 내용 text) : 20px
+*/
+
+/* 버튼 css */
+.button_yellow_white {
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #ffda31;
+    color: white;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+    transition: background-color 0.1s;
+}
+
+.button_yellow_white:hover {
+    border: 2px solid #ffda31;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.button_yellow_black {
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    color: black;
+    background-color: #ffda31;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.button_yellow_black:hover {
+    background-color: rgb(255, 179, 48);
+    color: black;
+    cursor: pointer;
+}
+
+.button_white_yellow {
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid #ffda31;
+    color: rgb(42, 42, 42);
+    background-color: #ffda31;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.button_white_yellow:hover {
+    color: #3c3c3c;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+/* icon 이미지 꽉 채우는 css */
+.icon {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 20px;
+    height: 20px;
+    opacity: 50%;
+}
+
+.icon:hover {
+    opacity: 100%;
+}
+
+/* html 코드 작성 예시 */
+
+/* .correction_icon {
+    background-image: url("/public/img/correction.png");
+}
+
+.delte_icon {
+    background-image: url("/public/img/trash-can.png");
+} */

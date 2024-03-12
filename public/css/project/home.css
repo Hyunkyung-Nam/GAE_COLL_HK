@@ -1,0 +1,644 @@
+body {
+    position: relative;
+
+    font-family: "IBM Plex Sans KR", sans-serif;
+}
+main {
+    position: relative;
+    padding-top: 140px;
+}
+
+/*전체 큰 틀*/
+#contain-home {
+    width: auto;
+    padding-top: 10px;
+    height: auto;
+    background-color: #bfbfbf;
+    border-radius: 30px;
+    margin: 30px 50px;
+}
+#overview-contain {
+    margin: 25px;
+    background-color: white;
+    border-radius: 30px;
+    width: calc(100% - 50px);
+    height: auto;
+}
+#overview-header {
+    font-size: 25px;
+    padding: 25px 25px 10px 25px;
+}
+
+#pen-img-div {
+    padding-left: 20px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+#pro-img-div {
+    padding-right: 20px;
+    height: 20px;
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    cursor: pointer;
+}
+
+#pen-img {
+    width: 20px;
+    height: 20px;
+    padding-right: 10px;
+}
+#overview-main {
+    display: flex;
+    align-items: flex-end;
+    padding: 0 0 25px 50px;
+}
+
+/*member*/
+#member-contain {
+    margin: 25px;
+    background-color: white;
+    border-radius: 30px;
+    width: calc(100% - 50px);
+    height: auto;
+}
+#member-header {
+    font-size: 25px;
+    padding: 25px 25px 10px 25px;
+    display: flex;
+}
+#pen-img-div {
+    padding-left: 20px;
+    width: 20px;
+    height: 20px;
+}
+#member-main {
+    display: flex;
+    align-items: flex-end;
+    padding: 0 0 25px 50px;
+}
+/*프로젝트 규칙, 이슈 노트, 기획, ERD구조, API 명세 큰 틀*/
+#project-big-contain {
+    display: flex;
+    width: 100%;
+}
+
+#rule-issue {
+    width: calc((100% - 50px) / 2);
+    height: auto;
+    display: grid;
+    margin: 0 25px 0 25px;
+}
+/*프로젝트 규칙 시작*/
+#project-rule-contain,
+#project-issue-contain {
+    margin-bottom: 25px;
+    background-color: white;
+    border-radius: 30px;
+    height: auto;
+    padding-bottom: 20px;
+}
+.project-img-div1 {
+    width: 25px;
+    height: 25px;
+    padding-left: 20px;
+    cursor: pointer;
+}
+.project-img-div {
+    width: 25px;
+    height: 25px;
+    padding-left: 20px;
+    cursor: pointer;
+}
+.project-img {
+    width: 100%;
+    height: 100%;
+}
+#rule-contain {
+    display: flex;
+    padding: 25px;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+#project-rule {
+    padding: 0 20px;
+}
+.li {
+    position: relative;
+    padding: 10px 0;
+    font-size: 20px;
+    word-break: break-word;
+    cursor: default;
+}
+#rule-li {
+    padding: 25px 0 0 75px;
+}
+.rule-icon {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 5vw; /* 아이콘을 텍스트 옆에 위치시키기 위한 값 */
+    cursor: pointer;
+}
+
+li:hover .rule-icon {
+    display: block;
+}
+.rule-img {
+    width: 25px;
+    height: 25px;
+    padding-right: 20px;
+}
+/*파일 업로드 부분 큰 틀*/
+#file-upload-contain {
+    margin-right: 25px;
+    background-color: white;
+    border-radius: 30px;
+    width: calc((100% - 50px) / 2);
+    height: auto;
+    margin-bottom: 20px;
+}
+/*file 업로드 공통적인 부분*/
+.file-name {
+    display: flex;
+    padding: 25px;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+.file-plus-div {
+    font-size: 20px;
+    padding: 0 20px;
+    height: 30px;
+}
+.file-plus {
+    padding-right: 10px;
+    display: flex;
+    cursor: pointer;
+    /* width: 100%; */
+    height: 100%;
+    align-items: center;
+}
+.file-upload-upload {
+    display: flex;
+}
+.file-upload-api,
+.file-upload-plan,
+.file-upload-erd {
+    width: 120px;
+    height: 20px;
+}
+
+.file-contain {
+    height: auto;
+}
+
+/*기획의 큰 틀 시작*/
+.plan-text,
+.erd-text,
+.api-text {
+    padding: 20px;
+    height: auto;
+}
+.plan-file-contain,
+.erd-file-contain,
+.api-file-contain {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: overlay;
+    height: 150px;
+    background-color: #ffda31;
+    border-radius: 30px;
+    padding: 20px 20px 50px 20px;
+    margin: 10px;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.plan-file-img,
+.api-file-img,
+.erd-file-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+.plan-file-name,
+.api-file-name,
+.erd-file-name {
+    height: 50px;
+    width: 170px;
+    border-radius: 10px;
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+    margin-right: 20px;
+    cursor: pointer;
+    position: relative;
+}
+.plan-file-name:hover .fileButton,
+.api-file-name:hover .fileButton,
+.erd-file-name:hover .fileButton {
+    display: block;
+}
+.fileDeleteBox {
+    text-decoration: none;
+    color: black;
+    width: 80px;
+    -ms-overflow-style: none;
+    /* scrollbar-width: none; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.fileButton {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    margin-left: 80px;
+    width: 38px;
+    background-color: red;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.file-icon {
+    height: 100%;
+}
+/*erd 구조*/
+#erd-text {
+    width: 100%;
+    height: 15vw;
+}
+/*api 명세 */
+#api-text {
+    width: 100%;
+    height: 15vw;
+}
+
+/*issue-note 시작*/
+#issue-contain {
+    width: 50vw;
+    height: auto;
+}
+#issue-text-contain {
+    height: auto;
+}
+.issue-text-day-contain {
+    display: flex;
+    padding: 0 25px 25px 50px;
+    align-items: center;
+    height: 90px;
+    text-align: center;
+}
+.issue-text {
+    width: auto;
+    height: auto;
+    word-wrap: break-word;
+    cursor: pointer;
+}
+.issue-day {
+    width: 23%;
+    word-wrap: break-word;
+}
+
+/*아래 큰 틀*/
+#under-contain {
+    display: flex;
+    width: 100%;
+}
+
+/*팀 활동 시작*/
+#team-work-contain {
+    background-color: white;
+    border-radius: 30px;
+    width: calc((100% - 50px) / 2);
+    height: auto;
+    margin: 0 25px;
+    height: 400px;
+    overflow-y: auto;
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+}
+
+#team-work,
+#feedback,
+#issue-header {
+    display: flex;
+    padding: 25px;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+.team-work-list,
+.feedback-list {
+    padding: 10px 0 10px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100% - 100px);
+    margin-left: 35px;
+    font-size: 20px;
+}
+#team-work-list-text,
+#feedback-list-text {
+    padding-left: 20px;
+    width: 80%;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+}
+.teamDiv,
+.needFeedDiv {
+    display: flex;
+    width: calc(100% - 100px);
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    height: 60px;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 3px 5px #c4c4c4;
+    margin-bottom: 7px;
+}
+/*피드백 요청 목록*/
+#feedback-work-contain {
+    background-color: white;
+    border-radius: 30px;
+    width: calc((100% - 50px) / 2);
+    height: auto;
+    margin-bottom: 25px;
+    margin-right: 25px;
+    height: 400px;
+    overflow-y: auto;
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+}
+.img {
+    width: 40px;
+    height: 40px;
+}
+#overview-input {
+    display: none;
+    width: 400px;
+    height: 40px;
+    border-style: none;
+    border-bottom: #bfbfbf solid 2px;
+}
+#overview-input:focus {
+    outline: none;
+}
+.issueNoteDiv {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    border-style: none;
+    border-bottom: solid;
+    border-color: gray;
+    justify-content: center;
+    align-items: center;
+}
+#issueTable {
+    width: calc(100% - 60px);
+    height: auto;
+    text-align: center;
+    margin: 30px;
+    border-collapse: collapse;
+    border: solid;
+}
+.td1 {
+    width: 5%;
+    border: 1px solid;
+}
+.td2 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-decoration: none;
+    color: black;
+    width: 50%;
+    border: 1px solid;
+    height: 50px;
+}
+.td3 {
+    width: 20%;
+    border: 1px solid;
+}
+.td4 {
+    width: 30%;
+    border: 1px solid;
+}
+.saveButton {
+    cursor: pointer;
+}
+.poject-a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+.teamDivImg {
+    width: 60px;
+    height: 60px;
+}
+.teamImg {
+    width: 100%;
+    height: 100%;
+}
+.issue-a,
+#team-work-header {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+@media (max-width: 1260px) {
+    #project-issue-contain {
+        overflow: auto;
+        scrollbar-width: none;
+    }
+}
+
+@media (min-width: 971px) and (max-width: 1200px) {
+    .team-work-list,
+    .feedback-list {
+        width: 100%;
+        padding: 0;
+        align-items: normal;
+    }
+    .teamDiv,
+    .needFeedDiv {
+        width: auto;
+    }
+    #project-issue-contain {
+        overflow: auto;
+        scrollbar-width: none;
+    }
+    #issueTable {
+        width: 150%;
+    }
+}
+
+@media (min-width: 801px) and (max-width: 971px) {
+    .team-work-list,
+    .feedback-list {
+        width: 100%;
+        padding: 0;
+        align-items: normal;
+    }
+    .teamDiv,
+    .needFeedDiv {
+        padding-bottom: 0;
+        width: 100%;
+    }
+    #rule-contain {
+        font-weight: normal;
+    }
+    #rule-issue {
+        font-weight: 0;
+        font-size: 20px;
+    }
+    .project-img-div {
+        padding: 0;
+    }
+    .file-name {
+        font-size: 20px;
+        font-weight: normal;
+        flex-wrap: wrap;
+        padding: 25px 0 25px 25px;
+    }
+    .file-plus-div {
+        padding-left: 10px;
+    }
+    #project-issue-contain {
+        overflow: auto;
+        scrollbar-width: none;
+    }
+    #issueTable {
+        margin: 0 0 0 30px;
+        width: 150%;
+    }
+    .td4 {
+        width: 25%;
+    }
+    .td1 {
+        width: 5%;
+    }
+}
+
+@media (min-width: 375px) and (max-width: 800px) {
+    #overview-header {
+        font-size: 20px;
+    }
+    #overview-main {
+        padding: 0px 0 25px 38px;
+    }
+    #pen-img-div {
+        padding-right: 20px;
+    }
+    #overview-input {
+        width: 330px;
+        height: 40px;
+        border-style: none;
+        border-bottom: #bfbfbf solid 2px;
+    }
+    #member-main {
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    #member-header {
+        font-size: 20px;
+    }
+    .member-div {
+        width: 100px;
+    }
+    #project-big-contain,
+    #under-contain {
+        flex-direction: column;
+    }
+    #rule-contain {
+        font-size: 20px;
+        font-weight: normal;
+    }
+    .project-img-div {
+        padding: 0;
+    }
+    #rule-issue {
+        width: auto;
+    }
+    #rule-li {
+        padding-top: 0;
+    }
+    #project-issue-contain {
+        overflow: auto;
+        scrollbar-width: none;
+    }
+    #issueTable {
+        margin-left: 30px;
+        width: 100%;
+    }
+    #file-upload-contain {
+        width: auto;
+        margin-left: 25px;
+    }
+    #team-work-contain {
+        width: auto;
+        margin: 0 25px;
+    }
+    #feedback-work-contain {
+        margin: 20px 25px;
+        width: auto;
+    }
+    #team-work,
+    #feedback,
+    #issue-header {
+        font-weight: normal;
+        font-size: 20px;
+    }
+    .feedback-list,
+    .team-work-list {
+        padding: 0;
+        font-size: medium;
+        align-items: normal;
+        overflow-x: auto;
+        width: 100%;
+        overflow: hidden;
+    }
+    .teamDiv,
+    .needFeedDiv {
+        width: 100%;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .file-name {
+        font-size: 20px;
+        font-weight: normal;
+        flex-wrap: wrap;
+    }
+    .saveButton {
+        position: sticky;
+        left: 100%;
+    }
+    .file-plus-div {
+        padding: 20px;
+    }
+    .plan-file-contain,
+    .api-file-contain,
+    .erd-file-contain {
+        height: auto;
+    }
+}

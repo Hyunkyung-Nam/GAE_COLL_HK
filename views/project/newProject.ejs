@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../../public/css/project/newProject.css" />
+        <%-include('../../views/common/header.ejs') %>
+    </head>
+    <body>
+        <div id="newProject-contain">
+            <form id="form-project">
+                <div id="newProject-name">
+                    <h1>프로젝트 생성</h1>
+                </div>
+                <div class="project-div">
+                    <label>프로젝트 이름</label>
+                    <input type="text" class="input" required />
+                </div>
+                <br />
+                <div class="project-div">
+                    <label>프로젝트 날짜</label>
+
+                    <input type="date" id="date" min="2012-06-05" max="2050-06-20" value="2024-06-15" class="input" />
+                </div>
+                <br />
+                <div class="project-div">
+                    <label>프로젝트 멤버 초대</label>
+                    <input type="text" placeholder="프로젝트 멤버 초대" class="input" onclick="openPopup()" />
+                </div>
+                <br />
+
+                <div class="popup-overlay" onclick="closePopup()"></div>
+                <div class="popup-content">
+                    <h1>이메일을 적으세요</h1>
+                    <div id="member-invitation">
+                        <label style="padding-right: 5vw">이메일 : </label>
+                        <input type="email" id="email-write" />
+                    </div>
+                    <div id="member-invi-button-div">
+                        <button onclick="closePopup()" id="member-invi-button">전송</button>
+                    </div>
+                </div>
+                <div class="project-div">
+                    <label>프로젝트 이미지</label>
+
+                    <input type="text" placeholder="프로젝트 이미지" class="input" />
+                </div>
+                <br />
+                <div class="project-div">
+                    <label>프로젝트 overview</label>
+
+                    <input type="text" placeholder="프로젝트 overview" class="input" />
+                </div>
+                <br />
+                <div class="project-div">
+                    <label>프로젝트 rule</label>
+
+                    <input type="text" placeholder="프로젝트 rule" class="input" />
+                </div>
+                <br />
+            </form>
+            <input type="submit" form="form-project" id="newProject-submit" />
+        </div>
+        <%-include('../../views/common/footer.ejs')%>
+    </body>
+    <script src="../../public/js/project/newProject.js"></script>
+</html>

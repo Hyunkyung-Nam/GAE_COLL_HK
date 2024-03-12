@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>main page</title>
+        <link rel="stylesheet" href="../public/css/main.css" />
+        <link rel="stylesheet" href="../public/css/common/font.css" />
+        <link rel="icon" href="../../../../public/img/logo.png" />
+        <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <%-include('common/header.ejs') %>
+        <main>
+            <p class="hi">안녕하세요 <span id="username" style="font-size: 40px"></span></p>
+            <div class="main_link">
+                <div class="github_link">
+                    <a id="github"><img class="main_github_img" src="../public/img/github.png" /></a>
+                </div>
+                <div class="blog_font"><a id="blog" style="color: black">blog</a></div>
+            </div>
+
+            <div class="main_middle_block">
+                <div class="main_mywork">
+                    <div class="main-mywork-txt-box"><div class="main_mywork_txt">내 작업</div></div>
+                    <div class="main_status">
+                        <div class="main_status_txt selected">계획 중</div>
+                        <div class="main_status_txt">진행 중</div>
+                        <div class="main_status_txt">피드백 요청</div>
+                        <div class="main_status_txt">피드백 완료</div>
+                        <div class="main_status_txt">중단됨</div>
+                        <div class="main_status_txt">완료</div>
+                    </div>
+
+                    <div class="main_board">
+                        <table class="main_board_table" border="1" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th class="th1">작업명</th>
+                                    <th class="th2">마감일</th>
+                                    <th class="th3">프로젝트명</th>
+                                </tr>
+                            </thead>
+                            <tbody id="my-job-tbody"></tbody>
+                        </table>
+                    </div>
+                    <div id="more-table"><button class="main_plus" onclick="showMoreJob()">+ 더보기</button></div>
+                </div>
+
+                <div class="main_myproject">
+                    <div class="main_myproject_projectTxt">프로젝트</div>
+                    <div class="profiles">
+                        <div class="create_myproject_profile">
+                            <a href="/project/newProject" style="text-decoration: none; color: black"
+                                ><div class="main_myproject_generate">+</div>
+                                <div class="main_myproject_generTxt">프로젝트 생성</div></a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main_lower_block">
+                <p class="main_team_txt">팀 활동</p>
+                <div class="team_board">
+                    <table class="team_board_table" border="1" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th class="team_th1">프로젝트</th>
+                                <th class="team_th2">활동내역</th>
+                            </tr>
+                        </thead>
+                        <tbody id="team_board-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+        <%-include('common/footer.ejs') %>
+
+        <script src="../public/js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>board_write page</title>
+        <link rel="stylesheet" href="../../public/css/project/board_content.css" />
+        <link rel="stylesheet" href="../../public/css/common/font.css" />
+        <link rel="icon" href="../../../../public/img/logo.png" />
+        <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    ></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <%- include('../common/header.ejs') %>
+        <!--작업 상태-->
+        <nav>
+            <div class="top_bar">
+                <div class="select_box"> 
+                    <!-- left_wrap -->
+                    <div id="bg" class="placement_status">
+                        <div id="blue" class="circle"></div>
+                        <div id="pro_status" class="status_txt">작업 상태</div>
+                    </div>
+    
+                    <ul class="option_list_profile">
+                            <li class="option_item" onclick="changeStatusToPlan()">
+                                <div id="bg_blue" class="placement_status">
+                                    <div id="blue" class="circle"></div>
+                                    <div id="planning" class="status_txt">계획중</div>
+                                </div>
+                            </li>
+                            <li class="option_item" onclick="changeStatusToProg()">
+                                <div id="bg_yellow" class="placement_status">
+                                    <div id="yellow" class="circle"></div>
+                                    <div class="status_txt">진행중</div>
+                                </div>
+                            </li>
+                            <li class="option_item" onclick="changeStatusToSus()">
+                                <div id="bg_purple" class="placement_status">
+                                    <div id="purple" class="circle"></div>
+                                    <div class="status_txt">중단됨</div>
+                                </div>
+                            </li>
+                            <li class="option_item" onclick="changeStatusToFin()">
+                                <div id="bg_green" class="placement_status">
+                                    <div id="green" class="circle"></div>
+                                    <div class="status_txt">완료</div>
+                                </div>
+                            </li>
+                            <li class="option_item" onclick="changeStatusToNeedFeed()">                                
+                                <div id="bg_red" class="placement_status">
+                                    <div id="red" class="circle"></div>
+                                    <div class="status_txt">피드백 요청</div>
+                                </div>
+                            </li>
+                            <li class="option_item" onclick="changeStatusToFinishFeed()">
+                                <div id="bg_black" class="placement_status">
+                                    <div id="black" class="circle"></div>
+                                    <div class="status_txt">피드백 완료</div>
+                                </div>
+                            </li>
+                    </ul>
+                </div> 
+            </div>
+        </nav>
+
+        <hr class="top_bar_line2" />
+
+        <section id="projectInfo">
+            <div class="board_name">
+                <input type="text" id="boardTitle" class="write_board_name" placeholder="제목을 작성하세요."></input>
+            </div>
+            <br>
+            <div class="board1" id="board1">
+                <label for="boardManager">담당자</label>
+                <select id="boardManager"></select>
+            </div>
+            <br>
+            <div class="board2" id="board2">
+                <label for="boardDeadline">마감일</label>
+                <input type="date" id="boardDeadline" class="boardDeadline" >
+            </div>
+            <br>
+            <div class="board3">
+                <span id="projectName" class="projectName">프로젝트</span><div class="pojectNameDiv" id="myProject"></div>
+            </div>
+             <br>
+        </section>
+        <hr class="top_bar_line2" />
+        <br>
+        <section id="explainBox">
+            <span id="boardExplain" class="board_explain">설명</span>
+            <textarea id="writeExplain" class="write_explain" placeholder="이 작업에 대해 설명해주세요"></textarea>
+            <div class="editButtonBox">
+                <button type="button" class="editButt" onclick="editFunc()">수정하기</button>
+                <button type="button" class="editButt" onclick="deleteBoard()">삭제하기</button>
+            </div>
+        </section>
+        <br>
+        <hr class="top_bar_line2" />
+
+        <br>
+        <!--댓글 출력-->
+        <div class="boradComments"></div>
+        <br>
+        <hr>
+        <!--댓글 작성-->
+        <div class="board_comment">
+            <div class="wrap_comment">
+                <!-- <div class="member_profile_img"></div> -->
+                <textarea class="comment_area" placeholder="댓글 작성"></textarea>
+            </div>
+            <div>
+                <button type="button" class="boardCommentButt" onclick="addComment()">작성</button>
+            </div>
+        </div>
+
+
+        <%- include ('../common/footer.ejs') %>
+    </body>
+
+    <script src="../../public/js/project/board_content.js"></script>
+</html>

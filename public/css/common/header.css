@@ -1,0 +1,156 @@
+* {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+#header_wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+
+#header {
+    z-index: 100;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 500;
+    position: fixed;
+    top: 0vh;
+    height: 100px;
+    background-color: #d9e9bf;
+}
+
+.header_menu1 {
+    display: flex;
+    align-items: center;
+    width: 210px;
+    padding-left: 50px;
+    /* line-height: 10vh; 왜 적용안됨? */
+}
+
+.header_menu2 {
+    width: 210px;
+    text-align: center;
+    font-weight: bold;
+}
+.header_menu3 {
+    width: 210px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+.mypage_logo {
+    width: 50px;
+    height: 50px;
+}
+.header_img {
+    width: 100%;
+    height: 100%;
+}
+
+.big_txt {
+    font-weight: 700;
+    font-size: 40px;
+}
+.a-style {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+@media (min-width: 550px) and (max-width: 710px) {
+    .header_menu1 {
+        width: 210px;
+    }
+    #header {
+        font-size: 15px;
+    }
+    .header_menu2 {
+        padding-left: 30px;
+    }
+    #now_date {
+        width: 84px;
+    }
+}
+@media (min-width: 460px) and (max-width: 550px) {
+    .header_menu1 {
+        width: 190px;
+    }
+    #header {
+        font-size: 15px;
+    }
+    .header_menu2 {
+        padding-left: 30px;
+    }
+    #now_date {
+        width: 84px;
+    }
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+    .big_txt {
+        font-size: 25px;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 460px) {
+    .header_menu1 {
+        width: 190px;
+    }
+    .header-menu2,
+    #now_date {
+        display: none;
+    }
+    #header {
+        font-size: 15px;
+    }
+    #now_date {
+        width: 84px;
+    }
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+    .big_txt {
+        font-size: 25px;
+    }
+    .mypage_logo {
+        width: 40px;
+        height: 40px;
+    }
+}
+@media (min-width: 370px) and (max-width: 400px) {
+    .header_menu1 {
+        width: 170px;
+    }
+    .header-menu2,
+    #now_date {
+        display: none;
+    }
+    #header {
+        font-size: 15px;
+    }
+    #now_date {
+        width: 62px;
+    }
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+    .big_txt {
+        font-size: 25px;
+    }
+    .mypage_logo {
+        width: 40px;
+        height: 40px;
+    }
+}

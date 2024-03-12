@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>calender</title>
+        <link rel="stylesheet" href="../../public/css/project/calender.css" />
+        <link rel="stylesheet" href="../../public/css/common/font.css" />
+        <link rel="icon" href="../../../../public/img/logo.png" />
+        <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet" />
+      
+    </head>
+    <body>
+        <%- include('./header.ejs')%> <%- include('../common/header.ejs')%>
+
+        <main>
+            
+            <div class="calender_right">
+              <div class="top_wrap">
+                  <div class="calender_name">캘린더</div>
+              </div> 
+              <div class="check_wrap">
+                <div>
+                  <button class="job-btn" onclick="showMyJob()">내 작업</button>
+                </div>
+                <div>
+                  <button class="job-btn" onclick="showTeamJob()">팀 작업</button>
+                </div>
+              </div>
+          </div>  
+
+          <div class="calender">
+            <div class="calender_wrap">
+              <div class="all_button_wrap">
+              <div class="button_wrap">
+                <button class="prev" type="button"><</button>
+                <button class="next" type="button">></button>
+                <button type="button" class="today" onclick="goToday()">오늘</button>
+              </div>
+              <div class="center">             
+                  <button type="button" id="openModalBtn" class="calender_title"></button>
+              </div>
+              <div class="right_wrap end">
+                <button id="make_calender" type="button" onclick="writeBoard()">일정 만들기</button>
+              </div>
+            </div>
+
+              <table class="date_wrap" border="1" style="table-layout: fixed;">
+                <thead class="date_head">
+                  <tr>
+                    <th>일</th>
+                    <th>월</th>
+                    <th>화</th>
+                    <th>수</th>
+                    <th>목</th>
+                    <th>금</th>
+                    <th>토</th>
+                  </tr>
+
+                </thead>
+            
+                <tbody class="date_board">
+                </tbody>
+              </table>
+            </div>  
+          </div>
+        </div>
+      
+<!-- 달력 팝업 띄우기 -->
+<!-- <div id="pop_info_1" class="background" style="display:hidden;">
+  <div class="window">
+  <div class="popup">
+    <div class="modal-content">
+    <div class="modal-header">
+      <select class="years_select">
+        <option value=""></option>
+      </select>
+      <div class="right_button">
+      <button class="prev" type="button"><</button>
+      <button class="next" type="button">></button>
+    </div>
+  </div>  
+  <div class="modal-body">
+    <div class="month_wrap">
+      <button type="button">1월</button>
+      <button type="button">2월</button>
+      <button type="button">3월</button>
+      <button type="button">4월</button>
+      <button type="button">5월</button>
+      <button type="button">6월</button>
+      <button type="button">7월</button>
+      <button type="button">8월</button>
+      <button type="button">9월</button>
+      <button type="button">10월</button>
+      <button type="button">11월</button>
+      <button type="button">12월</button>
+    </div>  
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="close" onclick="closePop()">
+      X
+  </button>
+  </div>
+</div>
+</div>
+</div>
+</div> -->
+</main>
+      
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+      <script src="../../public/js/project/calender.js"></script>
+    </body>
+</html>

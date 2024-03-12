@@ -1,0 +1,81 @@
+* {
+    background-color: #ffda31;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+#a-start {
+    display: flex;
+    text-decoration: none;
+    color: black;
+}
+
+#contain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+#header {
+    display: flex;
+    align-items: baseline;
+}
+#header-text {
+    margin: 0;
+    font-weight: bolder;
+    font-size: 40px;
+}
+.header-text1 {
+    font-size: 70px;
+}
+#start-dog {
+    width: 100px;
+    height: 100px;
+}
+
+/*아이콘 시작*/
+#login-type {
+    display: flex;
+    justify-content: space-evenly;
+    width: 45vw;
+    margin: 8vh 0;
+}
+#email-login,
+#google-login,
+#kakao-login {
+    width: 100%;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+.email-write {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30vw;
+    height: 7vh;
+    border-radius: 40px;
+    background-color: white;
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+#email,
+#kakao,
+#google {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+}
+button {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}

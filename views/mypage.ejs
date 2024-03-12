@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../public/css/mypage.css" />
+        <link rel="stylesheet" href="../public/css/common/font.css" />
+        <link rel="icon" href="../../../../public/img/logo.png" />
+        <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+        <title>mypage</title>
+    </head>
+    <%-include('../views/common/header.ejs') %>
+    <body>
+        <main>
+            <div class="profile_img_section">
+                <div class="profile_img_top">
+                    <div class="profile_more">
+                        <img src="../public/img/ellipsis-solid-2.svg" alt="더보기" />
+                        <button type="button" onclick="showPopup()"></button>
+                    </div>
+
+                    <div id="popup" style="display: none">
+                        <div class="close-btn-box">
+                            <div class="close-btn">
+                                <img src="../public/img/close.png" alt="" />
+                                <button onclick="closePopup()"></button>
+                            </div>
+                        </div>
+                        <ul>
+                            <li class="mypage-li" id="changePW" onclick="showPwdPopup()">비밀 번호 수정</li>
+                            <li class="mypage-li" onclick="showLogoutPopup()">로그 아웃</li>
+                            <li class="mypage-li" onclick="showDeletePopup()">회원 탈퇴</li>
+                        </ul>
+                    </div>
+                    <div id="pwdPopup" style="display: none">
+                        <!-- <div class="user-pwd">현재 비밀 번호</div>
+                        <input type="password" id="currentPwd" class="pwd-check" /> -->
+                        <div class="close-btn-box">
+                            <div class="close-btn">
+                                <img src="../public/img/close.png" alt="" />
+                                <button onclick="closePwdPopup()"></button>
+                            </div>
+                        </div>
+                        <div class="user-pwd">변경하고 싶은 비밀번호</div>
+                        <input type="password" id="newPwd" class="pwd-check" />
+                        <div class="user-pwd">비밀번호 확인</div>
+                        <input type="password" id="confirmPwd" class="pwd-check" />
+                        <div class="button-box">
+                            <button type="button" onclick="updatePassword()" class="new-pwd-button">수정</button>
+                        </div>
+                    </div>
+                    <div id="logoutPopup" style="display: none"></div>
+
+                    <div id="deletePopup" style="display: none">
+                        <div class="pwd">현재 비밀번호를 입력하세요</div>
+                        <input type="password" id="writePwd" class="pwd-now" />
+                        <button type="button" onclick="deleteUser()" class="exit-pwd-button">삭제</button>
+                    </div>
+                </div>
+
+                <div class="profile_img_middle">
+                    <div class="profile_img_box">
+                        <img id="profileImageDisplay" src="../public/img/usgi-solid.svg" alt="더보기" />
+                    </div>
+                </div>
+                <form class="profile_img_bottom">
+                    <div class="profile_select_box">
+                        <input
+                            type="file"
+                            id="user_img"
+                            name="user_img"
+                            onchange="preview(this)"
+                            accept=".gif, .jpg, .png, .jpeg, .bmp, .tiff"
+                        />
+                        <button type="button" onclick="document.getElementById('user_img').click()">
+                            프로필 이미지 선택
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <form class="profile_detail_section">
+                <div class="name_box">
+                    <div class="padding">이름</div>
+                    <input type="text" id="username" />
+                </div>
+                <div class="email_box">
+                    <div class="padding">이메일</div>
+                    <div id="useremail"></div>
+                </div>
+                <div class="name_box">
+                    <div class="padding">github</div>
+                    <input type="text" id="github" />
+                </div>
+                <div class="name_box">
+                    <div class="padding">blog</div>
+                    <input type="text" id="blog" />
+                </div>
+                <div class="update_box">
+                    <button type="button" onclick="changeProfile(event)">수정</button>
+                </div>
+            </form>
+        </main>
+        <%-include('../views/common/footer.ejs') %>
+        <script src="../public/js/mypage.js"></script>
+    </body>
+</html>

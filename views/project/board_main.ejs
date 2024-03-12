@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>board_main</title>
+    <link rel="stylesheet" href="../../public/css/common/font.css" /><link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../public/css/project/board_main.css" />
+    <link rel="icon" href="../../../../public/img/logo.png" />
+  </head>
+  <body>
+    <%- include('../common/header.ejs') %> <%- include('./header.ejs') %>
+    <main>
+      <div class="board-box">
+        
+        <button type="button" class="addJob" id="addJob" onclick="addJob()">+ 작업추가</button>
+        <table class="main_board_table0" border="1" cellspacing="0">
+          <thead>
+            <tr>
+              <th id="th1" class="th1">작업</th>
+              <th id="th2" class="th2">상태</th>
+              <th id="th3" class="th3">마감일</th>
+              <th id="th4" class="th4">작업담당자</th>
+            </tr>
+          </thead>
+          <tbody id="addJobTbody"></tbody>
+        </table>
+        <!-- 작업 상태: 계획중 -->
+        <div id="planning_board" class="workboard">
+          <table id="planning_table" class="working_table" border="1" cellspacing="0">
+            <caption>
+              <div class="status_wrap">
+                <div class="toggle_open"></div>
+                <div id="bg_blue" class="placement_status_new">
+                  <div id="blue" class="circle"></div>
+                  <div class="status_txt">계획중</div>
+                </div>
+              </div>  
+            </caption>
+            <tbody id="planning-tbody">
+            </tbody>
+          </table>
+        </div>
+        <!-- 작업 상태: 진행중 -->
+        <div id="working_board" class="workboard">
+          <table id="working_table" class="working_table" border="1" cellspacing="0">
+            <caption>
+                    <div class="status_wrap">
+                      <div class="toggle_open"></div>
+                      <div id="bg_yellow" class="placement_status_new">
+                        <div id="yellow" class="circle"></div>
+                        <div class="status_txt">진행중</div>
+                      </div>
+                    </div>
+                  </caption>
+                  <tbody id="progress-tbody">
+                  </tbody>
+                  </table>
+                </div>
+                <!-- 작업 상태: 중단 -->
+                <div id="stop_board" class="workboard">
+                  <table id="stop_table" class="working_table" border="1" cellspacing="0">
+                    <caption>
+                      <div class="status_wrap">
+                        <div class="toggle_open"></div>
+                        <div id="bg_purple" class="placement_status_new">
+                          <div id="purple" class="circle"></div>
+                          <div class="status_txt">중단됨</div>
+                        </div>
+                      </div>
+                    </caption>
+                    <tbody id="suspend-tbody">
+                    </tbody>
+                  </table>
+                </div>
+                
+                <!-- 작업 상태: 완료 -->
+                <div id="complete" class="workboard">
+                  <table id="complete_table" class="working_table" border="1" cellspacing="0">
+                    <caption>
+                      <div class="status_wrap">
+                        <div class="toggle_open"></div>
+                        <div id="bg_green" class="placement_status_new">
+                          <div id="green" class="circle"></div>
+                          <div class="status_txt">완료</div>
+                        </div>
+                      </div>
+                    </caption>
+                    <tbody id="finish-tbody">
+                    </tbody>
+                  </table>
+                </div>
+                
+                <!-- 작업 상태: 피드백 요청 -->
+                <div id="request" class="workboard">
+                  <table id="request_table" class="working_table" border="1" cellspacing="0">
+                    <caption class="">
+                      <div class="status_wrap">
+                        <div class="toggle_open"></div>
+                        <div id="bg_red" class="placement_status_new">
+                          <div id="red" class="circle"></div>
+                          <div class="status_txt">피드백 요청</div>
+                        </div>
+                      </div>
+                    </caption>
+                    <tbody id="needFeedback-tbody">
+
+                    </tbody>
+                  </table>
+                </div>
+                
+                <!-- 작업 상태: 피드백 완료 -->
+                <div id="request_ok" class="workboard">
+                  <table id="ok_table" class="working_table" border="1" cellspacing="0">
+                    <caption>
+                      <div class="status_wrap">
+                        <div class="toggle_open"></div>
+                        <div id="bg_black" class="placement_status_new">
+                          <div id="black" class="circle"></div>
+                          <div class="status_txt">피드백 완료</div>
+                        </div>
+                      </div>
+                    </caption>
+                    <tbody id="finishFeedback-tbody">
+                    </tbody>
+                  </table>
+                </div>
+          </div>
+        </main>
+      <%- include ('../common/footer.ejs') %>
+
+  <dialog id="dialog">
+    <div>작업 상태 선택</div>
+    <form method="dialog" class="flex justify-between">
+      <ul>
+      <div>
+        <button value="planning" class="modal-btn">
+                    <div id="bg_blue" class="placement_status_new">
+                      <div id="blue" class="circle1"></div>
+                      <div class="status_txt1">계획중</div>
+                    </div>
+        </button>
+      </div>
+      <div>
+        <button value="progress" class="modal-btn">
+
+                    <div id="bg_yellow" class="placement_status_new">
+                        <div id="yellow" class="circle1"></div>
+                        <div class="status_txt1">진행중</div>
+                    </div>
+      
+          </button>
+      </div>
+      <div>
+        <button value="suspend" class="modal-btn">
+
+                    <div id="bg_purple" class="placement_status_new">
+                        <div id="purple" class="circle1"></div>
+                        <div class="status_txt1">중단됨</div>
+                    </div>
+          </button>
+      </div>
+      <div>
+        <button value="finish" class="modal-btn">
+                    <div id="bg_green" class="placement_status_new">
+                        <div id="green" class="circle1"></div>
+                        <div class="status_txt1">완료</div>
+                    </div>
+        </button>
+      </div>
+      <div>
+        <button value="needFeedback" class="modal-btn">                               
+                    <div id="bg_red" class="placement_status_new">
+                        <div id="red" class="circle1"></div>
+                        <div class="status_txt1">피드백 요청</div>
+                    </div>
+          </button>
+      </div>
+      <div>
+        <button value="finishFeedback" class="modal-btn">
+
+                    <div id="bg_black" class="placement_status_new">
+                        <div id="black" class="circle1"></div>
+                        <div class="status_txt1">피드백 완료</div>
+                    </div>
+        </button>
+      </div>
+    </form>
+  </ul>
+  </dialog>
+  <dialog id="selectMember">
+    <div>작업 담당자 선택</div>
+    <form method="dialog" id="selectMemberForm" class="flex justify-between">
+    </form>
+  </dialog>
+        <script src="../../public/js/project/board_main.js"></script>
+
+    </body>
+</html>

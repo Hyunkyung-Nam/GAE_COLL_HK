@@ -1,0 +1,403 @@
+* {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ffda31;
+    font-family: "IBM Plex Sans KR", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+main {
+    padding-top: 140px;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.hi {
+    font-weight: 700;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.main_link {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3vw;
+}
+
+.main_github_img {
+    width: 40px;
+    height: 40px;
+    object-fit: fill;
+    border-radius: 50%;
+}
+
+.blog_font {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 30px;
+    font-style: oblique;
+    margin-left: 3vw;
+}
+a {
+    cursor: pointer;
+}
+
+.main_middle_block {
+    margin-top: 5vw;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.main_middle_block > * {
+    min-height: 200px;
+}
+
+.main_mywork {
+    background-color: white;
+    width: 45%;
+    border-radius: 1.5vw;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main_mywork > * {
+    width: 100%;
+}
+.main_myproject {
+    background-color: white;
+    width: 40%;
+    border-radius: 1.5vw;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+}
+.main-mywork-txt-box {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 5px 0;
+}
+.main_status {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5px 0;
+}
+.profiles {
+    /* padding: 20px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.profiles > * {
+    width: 30%;
+    padding-top: 10px;
+}
+
+.main_mywork_txt {
+    font-size: 2vw;
+    font-weight: 700;
+}
+
+.main_myproject_projectTxt {
+    font-size: 2vw;
+    font-weight: 700;
+}
+
+.main_status {
+    display: flex;
+}
+
+.main_status_txt {
+    cursor: pointer;
+    white-space: nowrap;
+}
+.main_board {
+    padding: 5px 0;
+}
+.main_board_table {
+    width: 100%;
+}
+.main_myproject_profile {
+    width: 100%;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.main_myproject_profile > button {
+    width: 100%;
+    justify-content: space-between;
+    text-decoration: none;
+    background-color: unset;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    cursor: pointer;
+}
+.create_myproject_profile > a {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.main_myproject_generate {
+    box-sizing: border-box;
+    border-radius: 1vw;
+    border: dashed 2px gray;
+    font-size: 2vw;
+    font-weight: 700;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.main_myproject_generTxt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+    text-align: center;
+    font-weight: 600;
+    font-size: 12px;
+    padding-right: 10px;
+    white-space: nowrap;
+}
+
+.main_myproject_show {
+    border-radius: 1vw;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+.main_myproject_show > img {
+    width: 100%;
+    height: 100%;
+}
+
+.main_lower_block {
+    background-color: white;
+    border-radius: 2vw;
+    width: 100%;
+    min-height: 300px;
+    margin-top: 6vw;
+    padding: 20px 30px;
+    box-sizing: border-box;
+}
+
+.main_team_txt {
+    font-size: 2vw;
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+
+.main_myproject_name {
+    color: black;
+    font-size: 1vw;
+    font-weight: 600;
+    line-height: 1.5vw;
+}
+
+.main_myproject_stat {
+    color: gray;
+    font-size: 0.9vw;
+    font-weight: 600;
+    line-height: 1.5vw;
+    text-align: end;
+}
+
+.txt_place {
+    padding-left: 1vw;
+    padding-right: 10px;
+}
+
+.main_plus {
+    padding-top: 10px;
+    color: gray;
+    font-size: 14px;
+    background-color: unset;
+    border: 0;
+    cursor: pointer;
+}
+.selected {
+    font-weight: bold;
+}
+thead th {
+    white-space: nowrap;
+}
+tbody td:not(.main_myproject_name) {
+    text-align: center;
+    white-space: nowrap;
+}
+.main_myproject_name {
+    white-space: wrap;
+}
+.hidden {
+    display: none;
+}
+
+.th1 {
+    width: 50%;
+}
+.th2 {
+    width: 25%;
+}
+.th3 {
+    width: 25%;
+}
+tr {
+    cursor: pointer;
+}
+td > img {
+    width: 30px;
+    height: 30px;
+}
+.teamTd {
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+.teamLogTd {
+    padding: 10px 30px;
+    text-align: left;
+}
+.team_board_table {
+    width: 100%;
+}
+.team_th1 {
+    width: 30%;
+}
+.team_th2 {
+    width: 70%;
+}
+.main_myproject_show > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 1vw;
+}
+
+@media (min-width: 650px) and (max-width: 1100px) {
+    .hi {
+        font-size: 20px;
+    }
+    .main_middle_block {
+        flex-direction: column;
+        margin-top: 15px;
+    }
+    .main_mywork,
+    .main_myproject {
+        margin-bottom: 20px;
+        width: calc(100% - 60px);
+        border-radius: 30px;
+        overflow-y: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .main_myproject_show {
+        border-radius: 10px;
+    }
+    .txt_place {
+        padding-left: 0;
+        width: 100px;
+    }
+    .main_myproject_name,
+    .main_myproject_stat {
+        font-size: 12px;
+        text-align: center;
+        line-height: normal;
+    }
+}
+
+@media (min-width: 370px) and (max-width: 650px) {
+    .hi {
+        font-size: 20px;
+    }
+    .main_middle_block {
+        flex-direction: column;
+        margin-top: 15px;
+    }
+    .main_mywork,
+    .main_myproject {
+        margin-bottom: 20px;
+        width: calc(100% - 60px);
+        border-radius: 30px;
+        overflow-y: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .main_mywork_txt {
+        font-size: 15px;
+    }
+    .main_status {
+        overflow-y: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        font-size: 14px;
+    }
+    .main_status_txt {
+        padding-right: 10px;
+    }
+    .selected {
+        padding: 0 100px 0 0;
+    }
+    .main_board {
+        overflow-y: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    tr {
+        height: 30px;
+    }
+    .main_team_txt,
+    .main_myproject_projectTxt {
+        font-size: 20px;
+    }
+    .profiles {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .profiles > * {
+        width: 150px;
+    }
+    .main_myproject_profile > button {
+        width: auto;
+        justify-content: flex-start;
+    }
+    .main_myproject_show {
+        border-radius: 10px;
+    }
+    .main_myproject_name,
+    .main_myproject_stat {
+        font-size: 12px;
+        text-align: center;
+        line-height: normal;
+    }
+    .txt_place {
+        padding-left: 0;
+        width: 100px;
+    }
+    .main_lower_block {
+        border-radius: 30px;
+        overflow-y: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}

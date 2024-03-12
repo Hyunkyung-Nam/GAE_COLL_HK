@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>issue_main page</title>
+        <link rel="stylesheet" href="../../public/css/project/issue_main.css" />
+        <link rel="stylesheet" href="../../public/css/common/font.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet" />
+        <link rel="icon" href="../../../../public/img/logo.png" />
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <%-include('../../views/common/header.ejs') %> <%-include('header.ejs')%>
+        <main>
+            <form id="issue-contain">
+                <div id="write">
+                    <a href="../../../project/issue_write" class="issue-write-a">글쓰기</a>
+                </div>
+                <div id="issue-search-contain">
+                    <select name="type" id="type" class="search-values">
+                        <option class="type" value="0">제목</option>
+                        <option class="type" value="1">작성자</option>
+                    </select>
+                    <input type="search" name="keyword" placeholder="검색" id="keyword" />
+                    <button type="button" id="search" onclick="searchFunc()">검색</button>
+                </div>
+                <div id="issueAnnouce"><p id="announceTxt"></p></div>
+                <div id="issue-contain-main">
+                    <div class="table_width">
+                        <table>
+                            <thead>
+                                <tr id="issue-contain-title">
+                                    <th id="issue-number">No</th>
+                                    <th id="issue-title">제목</th>
+                                    <th class="issue">작성자</th>
+                                    <th class="issue">작성시간</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!--페이지네이션-->
+                <div id="paginationBox">
+                    <!--이전 페이지 그룹 이동 버튼-->
+                    <div id="prevGroupButton" class="prevGroupButton">이전</div>
+                    <!-- 페이지 이동할 수 있는 버튼-->
+                    <div class="pageNumber" id="pageNumber"></div>
+                    <!--다음 페이지 그룹 이동 버튼-->
+                    <div id="nextGroupButton" class="nextGroupButton">다음</div>
+                </div>
+            </form>
+        </main>
+        <%-include('../../views/common/footer.ejs')%>
+    </body>
+    <script src="/../../public/js/project/issue_main.js"></script>
+</html>

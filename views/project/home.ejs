@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gae-Call</title>
+        <link rel="stylesheet" href="../../public/css/project/home.css" />
+        <link rel="stylesheet" href="../../public/css/common/font.css" />
+        <link rel="icon" href="../../../../public/img/logo.png" />
+        <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <%-include('../../views/common/header.ejs') %> <%-include('header.ejs')%>
+        <main>
+            <!--프로젝트 overview 시작-->
+            <div id="contain-home">
+                <div id="overview-contain">
+                    <div id="overview">
+                        <div id="overview-header">Project Overview</div>
+                        <div id="overview-main">
+                            <span id="overview-text"></span>
+                            <input
+                                type="text"
+                                id="overview-input"
+                                onkeydown="saveOverview(event)"
+                                onblur="saveBlurOverview()"
+                            />
+                            <div id="pen-img-div">
+                                <img src="../../public/img/edit.png" id="pen-img" onclick="changeOverview()" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--프로젝트 멤버 추가 시작-->
+                <div id="member-contain">
+                    <div id="member">
+                        <div id="member-header">
+                            Member
+                            <div class="project-img-div1">
+                                <img
+                                    src="../../public/img/plus.png"
+                                    class="project-img"
+                                    onclick="addMember() "
+                                    value="addMember"
+                                />
+                            </div>
+                        </div>
+                        <div id="member-main"></div>
+                    </div>
+                </div>
+                <!--프로젝트 규칙 시작-->
+                <div id="project-big-contain">
+                    <div id="rule-issue">
+                        <div id="project-rule-contain">
+                            <div id="rule-contain">
+                                <div class="project-img-div">
+                                    <img src="../../public/img/idea.png" class="project-img" />
+                                </div>
+                                <div id="project-rule">프로젝트 규칙</div>
+                                <div class="project-img-div">
+                                    <img
+                                        src="../../public/img/plus.png"
+                                        class="project-img"
+                                        onclick="projectRuleGeneration()"
+                                    />
+                                </div>
+                            </div>
+                            <div id="rule-li">
+                                <ul id="rule-list"></ul>
+                            </div>
+                        </div>
+                        <!--issue note 시작-->
+                        <div id="project-issue-contain">
+                            <div id="issue-header">ISSUE NOTES</div>
+                            <table id="issueTable">
+                                <thead id="issueThead">
+                                    <tr>
+                                        <th class="td1"></th>
+                                        <th class="td2">제목</th>
+                                        <th class="td3">작성자</th>
+                                        <th class="td4">작성일시</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="issueTbody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!--프로젝트 파일 업로드 시작-->
+                    <div id="file-upload-contain">
+                        <div class="file-contain">
+                            <div class="file-name">
+                                기획
+                                <div class="file-plus-div">
+                                    <label for="file-upload-plan" class="file-plus">
+                                        <img src="../../public/img/plus.png" class="file-plus" />
+                                        <div class="file-upload">파일 업로드</div>
+                                    </label>
+
+                                    <input
+                                        type="file"
+                                        id="file-upload-plan"
+                                        style="display: none"
+                                        class="input-file-upload"
+                                    />
+                                </div>
+                                <!-- <button type="button" onclick="uploadPlan()" class="saveButton">저장</button> -->
+                            </div>
+                            <div class="plan-text">
+                                <div class="plan-file-contain"></div>
+                            </div>
+                        </div>
+
+                        <input type="file" id="fileInput" style="display: none" />
+
+                        <div class="file-contain">
+                            <div class="file-name">
+                                ERD 구조
+                                <div class="file-plus-div">
+                                    <label for="file-upload-erd" class="file-plus"
+                                        ><img src="../../public/img/plus.png" class="file-plus" />
+                                        <div class="file-upload">파일 업로드</div></label
+                                    >
+                                    <input
+                                        type="file"
+                                        id="file-upload-erd"
+                                        style="display: none"
+                                        class="input-file-upload"
+                                    />
+                                </div>
+                                <!-- <button type="button" onclick="uploadERD()" class="saveButton">저장</button> -->
+                            </div>
+
+                            <div class="erd-text">
+                                <div class="erd-file-contain"></div>
+                            </div>
+                        </div>
+                        <input type="file" id="fileInput" style="display: none" />
+
+                        <div class="file-contain">
+                            <div class="file-name">
+                                API 명세
+                                <div class="file-plus-div">
+                                    <label for="file-upload-api" class="file-plus"
+                                        ><img src="../../public/img/plus.png" class="file-plus" />
+                                        <div class="file-upload">파일 업로드</div></label
+                                    >
+                                    <input
+                                        type="file"
+                                        id="file-upload-api"
+                                        style="display: none"
+                                        class="input-file-upload"
+                                    />
+                                </div>
+                                <!-- <button type="button" onclick="uploadAPI()" class="saveButton">저장</button> -->
+                            </div>
+                            <div class="api-text">
+                                <div class="api-file-contain"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="under-contain">
+                    <div id="team-work-contain">
+                        <div id="team-work">
+                            <a href="../project/board_main" id="team-work-header"><div>팀 활동</div></a>
+                        </div>
+                        <div class="team-work-list"></div>
+                    </div>
+                    <div id="feedback-work-contain">
+                        <div id="feedback">
+                            <div id="feedback-work-header">피드백 요청 목록</div>
+                        </div>
+                        <div class="feedback-list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <%-include('../../views/common/footer.ejs')%>
+    </body>
+
+    <script src="../../public/js/project/home.js"></script>
+</html>

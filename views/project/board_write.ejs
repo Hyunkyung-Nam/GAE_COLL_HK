@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>board_write page</title>
+        <link rel="stylesheet" href="../../public/css/project/board_write.css" />
+        <link rel="stylesheet" href="../../public/css/common/font.css" />
+        <link rel="icon" href="../../../../public/img/logo.png" />
+        <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    ></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <%- include('../common/header.ejs') %>
+        <main>
+            <hr class="top_bar_line1" />
+
+        <button type="button" id="status-btn" class="placement_status_inner blue" onclick="showModal()">
+            <div id="blue"class="circle1"></div>
+            <div id="status" class="status_txt1">계획중</div>
+        </button>
+            </div>
+        <section>
+            <div class="board_name">
+                <input type="text" id="boardTitle" class="write_board_name" placeholder="제목을 작성하세요."></input>
+            </div>
+            <div class="board2">
+                <label for="boardManager">담당자</label>
+                <button class="work_managers" id="new-work-member" type="button" onclick="showUserSelectModal(event)">작업자선택</button></div>
+            <div class="board2">
+                <label for="boardDeadline">마감일</label>
+                <input type="date" id="boardDeadline" class="boardDeadline" >
+            </div>
+            <div class="board3">
+                <span id="projectName" class="projectName">프로젝트</span><div class="pojectNameDiv" id="myProject"></div>
+            </div>
+        </section>
+        <hr class="top_bar_line2" />
+        <section>
+            <label id="boardExplain" class="board_explain">설명</label>
+            <textarea id="writeExplain" class="write_explain" placeholder="이 작업에 대해 설명해주세요"></textarea>
+        </section>
+        <div id="submit-btn-box">
+            <button type="button" class="button_white_yellow" onclick="submitFunc()">추가하기</button>
+        </div>
+        </main>
+        
+        <%- include ('../common/footer.ejs') %>
+        <dialog id="dialog">
+            <div>작업 상태 선택</div>
+            <form method="dialog" class="flex justify-between">
+              <ul>
+              <div>
+                <button value="planning" class="modal-btn">
+                            <div id="bg_blue" class="placement_status_new">
+                              <div id="blue" class="circle1"></div>
+                              <div class="status_txt1">계획중</div>
+                            </div>
+                </button>
+              </div>
+              <div>
+                <button value="progress" class="modal-btn">
+        
+                            <div id="bg_yellow" class="placement_status_new">
+                                <div id="yellow" class="circle1"></div>
+                                <div class="status_txt1">진행중</div>
+                            </div>
+              
+                  </button>
+              </div>
+              <div>
+                <button value="suspend" class="modal-btn">
+        
+                            <div id="bg_purple" class="placement_status_new">
+                                <div id="purple" class="circle1"></div>
+                                <div class="status_txt1">중단됨</div>
+                            </div>
+                  </button>
+              </div>
+              <div>
+                <button value="finish" class="modal-btn">
+                            <div id="bg_green" class="placement_status_new">
+                                <div id="green" class="circle1"></div>
+                                <div class="status_txt1">완료</div>
+                            </div>
+                </button>
+              </div>
+              <div>
+                <button value="needFeedback" class="modal-btn">                               
+                            <div id="bg_red" class="placement_status_new">
+                                <div id="red" class="circle1"></div>
+                                <div class="status_txt1">피드백 요청</div>
+                            </div>
+                  </button>
+              </div>
+              <div>
+                <button value="finishFeedback" class="modal-btn">
+        
+                            <div id="bg_black" class="placement_status_new">
+                                <div id="black" class="circle1"></div>
+                                <div class="status_txt1">피드백 완료</div>
+                            </div>
+                </button>
+              </div>
+            </form>
+          </ul>
+          </dialog>
+          <dialog id="selectMember">
+            <div>작업 담당자 선택</div>
+            <form method="dialog" id="selectMemberForm" class="flex justify-between">
+            </form>
+          </dialog>
+    </body>
+    <script src="../../public/js/project/board_write.js"></script>
+</html>

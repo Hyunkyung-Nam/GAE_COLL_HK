@@ -1,0 +1,98 @@
+body {
+    display: flex;
+    flex-direction: column; /* 요소들을 세로 방향으로 배열 */
+}
+
+#contain {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d9e9bf;
+    height: 150px;
+    font-size: 20px;
+}
+#footer-div {
+    height: auto;
+}
+
+/*왼쪽 text 설정*/
+#left {
+    display: flex;
+    align-items: center;
+    background-color: #d9e9bf;
+}
+#US {
+    margin-left: 50px;
+    background-color: #d9e9bf;
+}
+#email {
+    padding: 0 30px;
+    background-color: #d9e9bf;
+}
+#email-img {
+    width: 20px;
+    height: 20px;
+    background-color: #d9e9bf;
+}
+#phone-img {
+    width: 20px;
+    height: 20px;
+    background-color: #d9e9bf;
+}
+#phone {
+    background-color: #d9e9bf;
+}
+
+/*왼쪽 text 설정*/
+#right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: #d9e9bf;
+    padding-right: 50px;
+}
+#img {
+    background-color: #d9e9bf;
+}
+#git,
+#a {
+    display: flex;
+    background-color: #d9e9bf;
+    width: 20px;
+    height: 20px;
+}
+#GAECO {
+    background-color: #d9e9bf;
+}
+
+@media (max-width: 960px) {
+    #left {
+        display: block;
+        padding-left: 50px;
+    }
+    #US {
+        margin: 0;
+    }
+    #email {
+        padding: 0;
+        margin: 10px 0;
+    }
+}
+@media (max-width: 600px) {
+    #contain {
+        font-size: 15px;
+        display: block;
+    }
+    #left {
+        display: flex;
+        padding-bottom: 20px;
+        width: 80vw;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    #email {
+        margin: 10px 12px;
+    }
+}

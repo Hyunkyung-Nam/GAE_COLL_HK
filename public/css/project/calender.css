@@ -1,0 +1,132 @@
+main {
+    padding-top: 140px;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.calender {
+    box-sizing: border-box;
+    border-radius: 30px;
+    margin: 20px 0px;
+    padding: 30px 30px;
+    background-color: #f5f5f5;
+    width: 100%;
+}
+.calender_right {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 20px;
+    background-color: #f5f5f5;
+    border-radius: 20px;
+    padding: 20px;
+}
+.calender_name {
+    font-weight: bold;
+}
+.top_wrap {
+    margin-bottom: 10px;
+}
+.check_wrap {
+    display: flex;
+}
+.check_wrap > * {
+    margin-right: 10px;
+}
+.select_calender {
+    width: 100%;
+}
+.calender_wrap {
+    width: 100%;
+}
+.all_button_wrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.all_button_wrap > * {
+    width: calc(100% / 3);
+    display: flex;
+}
+.center {
+    justify-content: center;
+}
+.end {
+    justify-content: end;
+}
+.date_wrap {
+    width: 100%;
+}
+thead {
+    width: 100%;
+}
+tr {
+    width: 100%;
+}
+th {
+    width: calc(100% / 7);
+}
+td {
+    padding: 5px;
+}
+td button {
+    border: 0;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.td-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: baseline;
+}
+td {
+    height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+table {
+    height: 700px;
+    background-color: white;
+}
+.inner {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-bottom: 2px;
+}
+.board-txt {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.prev,
+.next,
+.today,
+#make_calender,
+.job-btn {
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid;
+    background-color: #ffda31;
+    cursor: pointer;
+}
+.prev,
+.next {
+    width: 30px;
+}
+
+.calender_title {
+    border: 0;
+    font-weight: bold;
+}

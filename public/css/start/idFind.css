@@ -1,0 +1,94 @@
+* {
+    background-color: #ffda31;
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: "IBM Plex Sans KR", sans-serif;
+}
+
+#contain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+#header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#header-text {
+    margin: 0;
+    font-weight: bolder;
+    font-size: 40px;
+}
+.header-text1 {
+    font-size: 70px;
+}
+
+#start-dog {
+    width: 100px;
+    height: 100px;
+}
+.start-img {
+    display: flex;
+    text-decoration: none;
+    color: black;
+    align-items: flex-end;
+}
+/*아이디 찾기 시작*/
+
+#find-user {
+    padding-top: 55px;
+}
+.text-aria {
+    display: flex;
+    width: 330px;
+    height: 40px;
+    background-color: white;
+    border-radius: 40px;
+    text-align: center;
+}
+.find {
+    width: 100%;
+    background-color: white;
+    border: none;
+    border-radius: 40px;
+    text-align: center;
+    height: 100%;
+}
+.ans {
+    background-color: white;
+}
+#contain-under {
+    display: flex;
+    height: 150px;
+    align-items: center;
+}
+.find-login {
+    width: 250px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.exit {
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#under-contain {
+    display: flex;
+}

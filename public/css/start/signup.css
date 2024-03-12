@@ -1,0 +1,119 @@
+body {
+    background-color: #ffda31;
+    font-family: "IBM Plex Sans KR", sans-serif;
+}
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+}
+#contain {
+    border-radius: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* position: absolute; */
+    height: fit-content;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    background-color: #f5f5f5;
+    padding: 30px 50px;
+}
+#header {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+#header-text {
+    margin: 0;
+    font-weight: bolder;
+    font-size: 40px;
+}
+.header-text1 {
+    font-size: 70px;
+}
+
+#start-dog {
+    width: 100px;
+    height: 100px;
+    display: flex;
+}
+.signup-a {
+    text-decoration: none;
+    color: black;
+}
+
+/* input 시작*/
+.main-text {
+    padding: 30px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+.text-aria {
+    display: flex;
+    width: 300px;
+    height: 40px;
+    background-color: white;
+    border-radius: 40px;
+}
+.email-div {
+    display: flex;
+    align-items: flex-end;
+}
+.input {
+    width: 100%;
+    background-color: white;
+    border: none;
+    border-radius: 40px;
+    text-align: center;
+}
+.button {
+    background-color: white;
+    height: 40px;
+    border-radius: 40px;
+    width: 100px;
+    cursor: pointer;
+}
+.auth-btn {
+    position: relative;
+    margin-left: 20px;
+}
+.ans-button {
+    width: 100px;
+    background-color: white;
+    height: 40px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+#question {
+    background-color: white;
+    text-align: center;
+}
+.ans {
+    background-color: white;
+    cursor: pointer;
+}
+#signup-submit {
+    background-color: black;
+    color: white;
+    width: 200px;
+    border-radius: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+.signup-btn-area {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.hidden {
+    display: none;
+}

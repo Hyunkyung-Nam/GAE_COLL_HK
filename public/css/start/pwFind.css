@@ -1,0 +1,186 @@
+body {
+    font-family: "IBM Plex Sans KR", sans-serif;
+    background-color: #ffda31;
+}
+
+#contain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+#header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 20px;
+}
+#header-text {
+    margin: 0;
+    font-weight: bolder;
+    font-size: 40px;
+}
+.header-text1 {
+    font-size: 70px;
+}
+
+#start-dog {
+    width: 100px;
+    height: 100px;
+}
+.start-img {
+    display: flex;
+    text-decoration: none;
+    color: black;
+    align-items: flex-end;
+}
+/*비밀번호 찾기 시작*/
+
+.text-aria {
+    display: flex;
+    flex-direction: row;
+    width: 360px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 40px;
+    text-align: center;
+}
+
+.input {
+    width: 70%;
+    background-color: white;
+    border: none;
+    border-radius: 40px;
+    text-align: center;
+    height: 100%;
+}
+#contain-under {
+    display: flex;
+    height: 150px;
+    align-items: center;
+}
+.find-login {
+    width: 250px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    margin-right: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button_yellow_black {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    width: 20% !important;
+    background-color: black !important;
+}
+
+.button_yellow_black:hover {
+    color: black !important;
+    background-color: white !important;
+}
+
+#popup {
+    position: fixed;
+    width: 300px;
+    height: 250px;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #fefefe !important;
+    border: 1px solid #888;
+    font-size: 20px;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.pwWrap {
+    margin-left: 25px;
+    margin-top: 25px;
+}
+
+.xImg {
+    width: 10px;
+    height: 10px;
+    margin-left: 240px;
+    margin-bottom: 10px;
+    position: absolute;
+    right: 25px;
+}
+
+label {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+#pwInput {
+    width: 230px;
+    border: 0;
+    border-bottom: #bcbcbc 3px solid;
+    /* 팝업 넓이 250px */
+}
+
+#pwInputAgain {
+    width: 230px;
+    margin-bottom: 8px;
+    border: 0;
+    border-bottom: #bcbcbc 3px solid;
+}
+
+span {
+    font-size: 18px;
+}
+
+.button_yellow_white {
+    width: 150px !important;
+    height: 25px !important;
+    font-size: 15px !important;
+    margin-left: 87px !important;
+    margin-top: 20px !important;
+    border: white 1px solid !important;
+    font-weight: 700 !important;
+}
+
+.txt {
+    margin-left: 25px;
+}
+
+.button_yellow_black {
+    border: white 3px solid !important;
+    color: white !important;
+}
+
+.find-login:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.gapCSS {
+    width: 10%;
+}
+
+.contentWrap {
+    margin-top: 5%;
+}
+
+li {
+    padding: 0;
+}

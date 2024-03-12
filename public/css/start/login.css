@@ -1,0 +1,76 @@
+* {
+    background-color: #ffda31;
+}
+body {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+#contain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+#header {
+    display: flex;
+    align-items: center;
+}
+#header-text {
+    margin: 0;
+    font-weight: bolder;
+    font-size: 40px;
+}
+.header-text1 {
+    font-size: 70px;
+}
+
+#start-dog {
+    width: 100px;
+    height: 100px;
+}
+
+/*아이디, 비밀번호 시작 */
+.input {
+    width: 290px;
+    background-color: white;
+    border: none;
+    text-align: center;
+}
+#login-text {
+    padding-top: 2vw;
+}
+.text-aria {
+    display: flex;
+    justify-content: center;
+    width: 330px;
+    height: 40px;
+    background-color: white;
+    border-radius: 20px;
+}
+.login {
+    display: flex;
+    justify-content: center;
+    width: 330px;
+    height: 40px;
+    background-color: black;
+    border-radius: 20px;
+    cursor: pointer;
+    color: white;
+    margin: 10px 0;
+}
+#find {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    height: 5vw;
+    width: 25vw;
+    font-weight: bold;
+    cursor: pointer;
+}
+.login-check {
+    cursor: pointer;
+}

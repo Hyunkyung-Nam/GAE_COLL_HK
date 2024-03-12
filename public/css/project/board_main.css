@@ -1,0 +1,503 @@
+* {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "IBM Plex Sans KR", sans-serif;
+    overflow-x: hidden;
+}
+main {
+    padding-top: 140px;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.board-box {
+    box-sizing: border-box;
+    border-radius: 30px;
+    margin: 30px 0px;
+    padding: 30px 30px;
+    background-color: #f5f5f5;
+    width: 100%;
+    min-height: 100vw;
+}
+.bg_color > * {
+    width: 100%;
+}
+
+.addJob {
+    background-color: hsl(0, 3%, 81%);
+    border: 0;
+    border-radius: 10px;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.add:hover,
+click {
+    cursor: pointer;
+    opacity: 0.5;
+}
+.work_board_th {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+table {
+    width: 100%;
+    border: 1px solid gray;
+    font-size: 20px;
+    height: 30px;
+}
+table {
+    border-collapse: collapse;
+}
+
+.main_board_table0 {
+    border: 2px solid;
+}
+
+th:not(.th1) {
+    font-size: 20px;
+    color: black;
+    text-align: left;
+    font-weight: 700;
+    border: 2px solid;
+    text-align: center;
+}
+.th1 {
+    font-size: 20px;
+    color: black;
+    text-align: left;
+    font-weight: 700;
+    border: 2px solid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+}
+
+td {
+    font-size: 20px;
+    color: black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 30px;
+    text-align: left;
+    /* padding-left: 1vw; */
+    font-weight: 700;
+    border: 2px solid;
+}
+button {
+    font-size: 15px;
+    font-weight: 700;
+    color: black;
+    text-align: left;
+    width: fit-content;
+    height: fit-content;
+}
+.td1,
+th1 {
+    padding-left: 20px;
+}
+
+tr {
+    border: 1px solid gray;
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 20px;
+    height: 50px;
+}
+
+#th1,
+.td1 {
+    border-left: 2px solid #f5f5f5;
+    width: 40%;
+}
+.button-wrap {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#th2,
+.td2 {
+    width: 20%;
+}
+
+#th3,
+.td3 {
+    width: 20%;
+}
+
+#th4,
+.td4 {
+    border-right: 2px solid #f5f5f5;
+    width: 20%;
+}
+.td3 > button {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+}
+.td4 > button {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+}
+
+.toggle_open {
+    width: 0;
+    height: 0;
+    border-top: 12px solid;
+    border-bottom: 12px solid transparent;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    margin-right: 10px;
+}
+
+.toggle_open:hover,
+click {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.status_wrap {
+    display: flex;
+}
+
+.placement_status_new {
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 10px;
+    min-width: 120px;
+    height: 30px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.placement_status_inner {
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 140px;
+    height: 80%;
+    min-height: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.placement_status_inner > * {
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+#bg_blue {
+    background-color: hsl(199, 74%, 85%);
+}
+
+#bg_yellow {
+    background-color: #f9f9c1;
+}
+
+#bg_purple {
+    background-color: #f8d6f8;
+}
+
+#bg_green {
+    background-color: #d2f5d2;
+}
+
+#bg_red {
+    background-color: #f8cfcf;
+}
+
+#bg_black {
+    background-color: #d1d0d0;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+
+    margin-right: 0.5vw;
+}
+
+#blue {
+    background-color: hsl(198, 60%, 70%);
+}
+
+#yellow {
+    background-color: #eaea5e;
+}
+#purple {
+    background-color: purple;
+}
+#green {
+    background-color: #328d32;
+}
+#red {
+    background-color: #f25c5c;
+}
+#black {
+    background-color: #504e4e;
+}
+
+.status_txt {
+    font-size: 20px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.status_wrap {
+    margin: 50px 0 10px 0;
+}
+
+button {
+    border: 0;
+    background-color: transparent;
+}
+
+button:hover,
+click {
+    cursor: pointer;
+    opacity: 0.7;
+    font-weight: 700;
+    background-color: hsl(0, 7%, 92%);
+}
+
+.work_name_td {
+    width: fit-content;
+    height: fit-content;
+}
+
+.work_status_td {
+    width: fit-content;
+    height: fit-content;
+}
+.work_deadline {
+    width: 100%;
+    height: 100%;
+}
+
+.work_deadline_td {
+    width: fit-content;
+    height: fit-content;
+}
+
+.work_managers {
+    width: fit-content;
+    height: fit-content;
+}
+
+.select_box * {
+    box-sizing: border-box;
+}
+.select_box {
+    position: relative;
+    width: 10vw;
+    height: 2vw;
+    border-radius: 4px;
+    border: none;
+    background: transparent;
+    background-size: 20px;
+    cursor: pointer;
+}
+
+.status_modify {
+    margin-left: 1.5vw;
+    margin-bottom: 1vw;
+    background-color: #b8b4b4;
+    border-radius: 2vw;
+    width: 10vw;
+    height: 2vw;
+    line-height: 2vw;
+    text-align: center;
+    font-weight: 700;
+    font-size: 13px;
+    border: none;
+}
+.select_box .option_list {
+    position: absolute;
+    width: 13vw;
+    background: #bfbfbf;
+    color: black;
+    list-style: none;
+    padding-right: 2vw;
+    margin-left: 0vw;
+    border-radius: 6px;
+    overflow: hidden;
+    max-height: 0;
+    transition: 0.3s ease-in;
+}
+
+.select_box.active .option_list {
+    max-height: 500px;
+}
+
+.select_box .option_item:last-child {
+    border-bottom: 0 none;
+}
+
+/* 스크롤 커스텀 */
+.select_box .option_list::-webkit-scrollbar {
+    width: 6px;
+}
+.select_box .option_list::-webkit-scrollbar-track {
+    background: transparent;
+}
+.select_box .option_list::-webkit-scrollbar-thumb {
+    background: #303030;
+    border-radius: 45px;
+}
+.select_box .option_list::-webkit-scrollbar-thumb:hover {
+    background: #303030;
+}
+
+.circle1 {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+}
+
+.status_txt {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.work_name {
+    /* a 링크 셀 전체 클릭 가능하게, 해당하는 상세페이지로 가게끔 */
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 1298px) {
+    * {
+        font-size: 15px;
+    }
+}
+.hidden {
+    display: none;
+}
+.closeToggle {
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 12px solid;
+    border-right: 12px solid transparent;
+    margin-right: 10px;
+}
+
+#dialog {
+    width: 300px;
+    height: 400px;
+    padding: 20px 10px 0 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.modal-btn {
+    width: fit-content;
+    padding: 0;
+}
+dialog > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px 20px 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+form > ul {
+    width: 100%;
+}
+form > ul > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.workboard {
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+}
+.flex-direction-column {
+    flex-direction: column;
+}
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+.td1 > input {
+    width: 100%;
+    border: 0;
+    height: 100%;
+    background-color: unset;
+}
+#selectMember {
+    box-sizing: border-box;
+    width: 300px;
+    height: 400px;
+    padding: 30px 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#selectMember form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 20px 10px;
+}
+#selectMember form div {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+#selectMember button {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+}
+#datepicker {
+    width: 100%;
+    height: 100%;
+}

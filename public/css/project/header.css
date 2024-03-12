@@ -1,0 +1,655 @@
+* {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #ffda31;
+    font-family: "IBM Plex Sans KR", sans-serif;
+}
+
+a:link {
+    font-weight: 700px;
+}
+
+#project_header {
+    z-index: 99;
+    width: auto;
+    top: 140px;
+    position: relative;
+    height: 120px;
+    background-color: white;
+    border-radius: 20px;
+    margin: 0 50px;
+    padding: 0 25px;
+}
+
+.pro_header1 {
+    font-weight: bold;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    /* line-height: 53px; */
+    align-items: center;
+}
+
+.left_wrap1_profile {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 8px;
+}
+
+.pro_status {
+    margin-left: 2vw;
+}
+
+.mid_wrap1_profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15%;
+}
+
+.right_wrap1_profile {
+    width: 3vw;
+    height: 3vw;
+    padding-left: 10px;
+}
+
+#githubEdit {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    bottom: 23px;
+    right: -2em;
+}
+
+.rightLogoWrap {
+    position: relative;
+}
+
+.pro_github {
+    width: 100%;
+    height: 100%;
+}
+
+.pro_github:hover {
+    opacity: 0.7;
+}
+
+.pro_date {
+    display: flex;
+}
+.pro_deadline {
+    padding-left: 1vw;
+}
+
+.pro_header2 {
+    font-size: 23px;
+    display: flex;
+    height: 60px;
+    align-items: center;
+}
+
+.pro_header2_link {
+    margin-right: 1vw;
+    color: black;
+}
+
+.pro_header2_link:active {
+    border-bottom: 2px solid;
+    font-weight: 700;
+}
+
+.pro_header2_link:hover {
+    border-bottom: 2px solid;
+    font-weight: 700;
+}
+
+/* .startDate input[type='date']::before {
+    content: attr(data-placeholder);
+    width: 100%;
+  } */
+
+.projectSchedule {
+    outline: none;
+    border: none;
+    font-size: 15px;
+}
+
+.pro_edit:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.addLink {
+    background-color: #fefefe !important;
+    border: 1px solid #888;
+    font-size: 20px;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 250px;
+    height: 25px;
+    position: fixed;
+
+    flex-direction: row;
+}
+
+.xImg {
+    width: 10px;
+    height: 10px;
+    margin-left: 240px;
+    margin-bottom: 10px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.xImg:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.right_wrap1_profile {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#githubLinkInput {
+    width: 200px;
+}
+
+.addBtn {
+    width: 31px;
+    height: 20px;
+    font-size: 13px !important;
+    font-weight: 400;
+    border: 1px solid gray;
+    border-radius: 3px;
+    margin-left: 4px;
+    padding: 0 !important;
+    margin-left: 5px;
+}
+
+.txtLink {
+    position: absolute;
+    top: 7px;
+    font-weight: 300;
+    font-size: 13px;
+}
+
+.pro_name {
+    border-style: none;
+    width: fit-content;
+    overflow: auto;
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 10px;
+}
+
+.gapProfile {
+    width: 5%;
+}
+
+/* select 박스 css */
+/* .status_modify {
+    margin-top: 0.5vw;
+    margin-left: 5vw;
+    background-color: #b8b4b4;
+    border-radius: 2vw;
+    width: 13vw;
+    height: 3vw;
+    line-height: 3vw;
+    text-align: center;
+    font-weight: 700;
+    font-size: 13px;
+    border: none;
+}
+
+.status_modify:hover {
+    opacity: 0.7;
+    cursor: pointer;
+} */
+
+.placement_status {
+    display: flex;
+    justify-content: center;
+    border-radius: 1vw;
+    width: auto;
+    height: 2vw;
+    line-height: 2vw;
+    align-items: center;
+}
+
+#bg_blue {
+    background-color: hsl(199, 74%, 85%);
+}
+
+#bg_yellow {
+    background-color: #f9f9c1;
+}
+
+#bg_purple {
+    background-color: #f8d6f8;
+}
+
+#bg_green {
+    background-color: #d2f5d2;
+}
+
+#bg_red {
+    background-color: #f8cfcf;
+}
+
+#bg_black {
+    background-color: #d1d0d0;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 1vw;
+    height: 1vw;
+
+    margin-right: 0.5vw;
+}
+
+#blue {
+    background-color: hsl(198, 60%, 70%);
+}
+
+#yellow {
+    background-color: #eaea5e;
+}
+#purple {
+    background-color: purple;
+}
+#green {
+    background-color: #328d32;
+}
+#red {
+    background-color: #f25c5c;
+}
+#black {
+    background-color: #504e4e;
+}
+
+.status_txt {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.select_box {
+    position: relative;
+    width: 11vw;
+    height: 3vw;
+    border-radius: 4px;
+    border: none;
+    background: white;
+    /* background-size: 20px; */
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+/* .select_box .status_modify {
+    display: flex;
+    align-items: start;
+    width: 15vw;
+    height: 3vw;
+    border: 0 none;
+    outline: 0 none;
+    padding-left: 2px;
+    background: transparent;
+    cursor: pointer;
+} */
+
+.select_box .option_list_profile {
+    top: 3vw;
+    position: absolute;
+    width: 11vw;
+    /* select 박스 회색창 가로 길어 */
+    background: #bfbfbf;
+    color: black;
+    list-style: none;
+    padding-left: 0px;
+    border-radius: 6px;
+    overflow: hidden;
+    max-height: 0;
+    transition: 0.3s ease-in;
+}
+
+.select_box.active .option_list_profile {
+    max-height: 500px;
+}
+
+.select_box .option_item {
+    /* border-bottom: 1px dashed black; */
+    transition: 0.1s;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.option_item {
+    padding-right: 0;
+    list-style: none;
+    padding-left: 0;
+}
+.option_item:hover {
+    opacity: 0.7;
+}
+
+.select_box .option_item:last-child {
+    border-bottom: 0 none;
+}
+
+/* 스크롤 커스텀 */
+.select_box .option_list_profile::-webkit-scrollbar {
+    width: 6px;
+}
+.select_box .option_list_profile::-webkit-scrollbar-track {
+    background: transparent;
+}
+.select_box .option_list_profile::-webkit-scrollbar-thumb {
+    background: #303030;
+    border-radius: 45px;
+}
+.select_box .option_list_profile::-webkit-scrollbar-thumb:hover {
+    background: #303030;
+}
+
+.dateBox {
+    border: 0;
+    font-weight: 900;
+    font-size: 20px;
+    width: fit-content;
+    white-space: nowrap;
+    background-color: transparent;
+    margin-top: 3px;
+}
+
+.betweenMark {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.pro_deadline {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.dateBox:hover {
+    opacity: 0.7;
+    cursor: auto;
+}
+
+.pro_edit {
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+}
+
+#dateEdit:hover {
+    border: gray 1px solid;
+    border-radius: 5px;
+}
+
+/* 프로젝트 이미지 수정팝업 css */
+.profileUploadPop {
+    width: 270px;
+    height: 80px;
+    position: absolute;
+    top: 52px;
+}
+
+.profilePopContents {
+    display: flex;
+    align-items: center;
+}
+
+.txt {
+    margin-bottom: 10px;
+}
+.fs {
+    font-size: 15px !important;
+    height: 23px !important;
+}
+
+.uploadsBtn {
+    position: fixed;
+    top: 10px;
+}
+
+#profileName {
+    margin-left: 5px;
+}
+
+.uploadsBtn {
+    position: absolute;
+    top: 74px;
+    left: 238px;
+    width: 55px;
+    height: 25px;
+    font-size: 15px;
+    background-color: #ffda31;
+    color: black;
+    font-weight: 700;
+    border-radius: 10px;
+    padding-left: 1px;
+    border: 0 !important;
+}
+
+.uploadsBtn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+    background-color: white;
+}
+
+.projectProfile {
+    border-radius: 20%;
+}
+
+.projectNameWrap {
+    display: flex;
+}
+
+.projectMidIconWrap {
+    display: flex;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+/* 폰트크기 바뀌는 구간 */
+@media screen and (max-width: 1100px) {
+    .pro_header1 {
+        font-size: 20px !important;
+    }
+
+    .pro_header2 {
+        font-size: 17px !important;
+    }
+
+    .dateBox {
+        font-size: 17px !important;
+    }
+
+    .betweenMark {
+        font-size: 17px !important;
+    }
+
+    .pro_deadline {
+        font-size: 17px !important;
+    }
+    #githubEdit {
+        right: -1.5em;
+    }
+}
+
+@media screen and (max-width: 940px) {
+    .rightLogoWrap {
+        padding-right: 50px;
+    }
+}
+
+@media screen and (max-width: 870px) {
+    .pro_header1 {
+        font-size: 17px !important;
+    }
+
+    .pro_header2 {
+        font-size: 15px !important;
+    }
+
+    .dateBox {
+        font-size: 15px !important;
+    }
+
+    .betweenMark {
+        font-size: 15px !important;
+    }
+
+    .pro_deadline {
+        font-size: 15px !important;
+    }
+
+    .pro_edit {
+        width: 20px;
+        height: 20px;
+    }
+    .pro_name {
+        font-size: 17px !important;
+    }
+
+    /* 디브 배치 */
+    .left_wrap1_profile {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+    }
+    .gapProfile {
+        display: none;
+    }
+    .projectNameWrap {
+        margin-bottom: 3px;
+        width: 100%;
+    }
+    .select_box .option_list_profile {
+        width: 100px;
+    }
+    .placement_status {
+        width: 100px;
+        border-radius: 15px;
+        height: 20px;
+    }
+    .circle {
+        width: 10px;
+        height: 10px;
+    }
+    #githubEdit {
+        right: -1.3em;
+    }
+    .rightLogoWrap {
+        padding: 0 !important;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    .betweenMark {
+        display: none;
+    }
+    .pro_date {
+        display: flex;
+        flex-direction: column;
+        margin-right: 0;
+    }
+    #project_header {
+        height: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .pro_date {
+        align-items: center;
+    }
+    .pro_github {
+        width: 30px;
+        height: 30px;
+    }
+    #githubEdit {
+        right: -1.5em;
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .pro_header1 {
+        font-size: 14px !important;
+    }
+
+    .pro_header2 {
+        font-size: 12px !important;
+    }
+
+    .dateBox {
+        font-size: 12px !important;
+    }
+
+    .betweenMark {
+        font-size: 12px !important;
+    }
+
+    .pro_deadline {
+        font-size: 12px !important;
+    }
+
+    .pro_edit {
+        width: 15px;
+        height: 15px;
+    }
+    .pro_name {
+        font-size: 14px !important;
+    }
+    #githubEdit {
+        right: -2em;
+    }
+}
+
+@media screen and (max-width: 437px) {
+    #mediaLogoWrap {
+        display: block !important;
+    }
+
+    #mediaLogoFade {
+        display: none;
+    }
+    .pro_header2 {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .pro_edit {
+        width: 15px;
+        height: 15px;
+    }
+
+    #dateEdit {
+        width: 10px;
+        height: 10px;
+    }
+
+    .pro_header1 {
+        display: flex;
+        justify-content: space-between;
+    }
+    /* #githubEdit {
+        margin-top: 60px;
+    } */
+}
+
+.projectProfile:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}

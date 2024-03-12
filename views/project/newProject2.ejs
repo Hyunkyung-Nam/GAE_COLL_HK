@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="../../public/css/project/newProject2.css" />
+  <link rel="stylesheet" href="../../public/css/common/font.css" />
+  <link rel="icon" href="../../../../public/img/logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+  <%- include('../../views/common/header.ejs') %>
+    <div class="wrap_middle">
+      <div id="newProject-contain">
+        <form id="form-project">
+          <div id="newProject-name">
+            프로젝트
+            <hr class="bar" />
+          </div>
+
+          <div class="project-div">
+            <label class="subtxt" for="projectName">프로젝트 이름</label>
+            <input type="text" id="projectName" class="txtBox" required />
+          </div>
+          <br />
+          <div class="proejctDates">
+            <div class="subtxt" for="setProDate">프로젝트 날짜</div>
+            
+                <label for="start_date">시작일</label>
+                <input type="date" id="start_date" class="txtBox"/>
+           
+        
+                  <label for="end_date">마감일</label>
+                  <input type="date" id="end_date" class="txtBox" />
+           
+          </div>
+
+          <br />
+         
+            <span class="subtxt" for="proInvite" id="proejctMemberInvit">프로젝트 멤버 초대</span><button type="button" id="proInvite" class="invi inviButton" onclick="openPopup()" style="display: inline;">초대</button>
+          
+          <ul id="emailList2"></ul>
+          <br />
+
+          <div class="popup-overlay">
+            <div class="popup-content">
+              <h1 class="h1Css">이메일을 작성하세요</h1>
+              <form name="email-write" id="member-invitation">
+                <label for="email-write">이메일 : </label>
+                <input type="email" name="email-write" id="email-write" placeholder="이메일 형식으로 작성해주세요."/>
+                <ul id="emailList"></ul>
+                <div id="member-invi-button-div">
+                  <button class="invi addButton" type="button" onclick="addEmail()" style="display: inline;">추가</button>
+                  <button type="button" onclick="closePopup()" id="member-invi-button" class="invi closeButton" style="display: inline;">닫기</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="project-div">
+            <label class="subtxt" for="proImg">프로젝트 이미지
+              <span class="button_yellow_white">파일 선택</span></label style="display: inline">
+            <p id="origin_name" style="display: inline-block"></p>
+            <input id="proImg" type="file" class="txtBox" style="display: none" accept=".gif, .jpg, .png, .jpeg, .bmp, .tiff"/>
+          </div>
+          <br />
+          <div class="project-div">
+            <label class="subtxt" for="proIntro">프로젝트 소개</label>
+            <input type="text" id="proIntro" class="txtBox" />
+          </div>
+          <br />
+        </form>
+        <button type="button" class="button_yellow_black" onclick="createProject()" id="newProject-submit">생성</button>
+      </div>
+    </div>
+
+    <%-include('../../views/common/footer.ejs')%>
+</body>
+<script src="../../public/js/project/newProject2.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+
+</html>

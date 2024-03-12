@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>issue_content page</title>
+        <link rel="stylesheet" href="../../public/css/project/issue_content.css" />
+        <link rel="stylesheet" href="../../public/css/common/font.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet" />
+        <link rel="icon" href="../../../../public/img/logo.png" />
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet" />
+    </head>
+    <body>
+        <%-include('../../views/common/header.ejs') %> <%-include('../../views/project/header.ejs') %>
+        <main>
+            <div class="bg_white">
+                <form name="issue_write_form" enctype="multipart/form-data">
+                    <div class="form_top">
+                        <h1>프로젝트 이슈</h1>
+                        <div id="title-con">
+                            <button
+                                type="button"
+                                id="img-corrcetion"
+                                class="icon correction_icon"
+                                onclick="editIssueFunc()"
+                            ></button>
+                            <button
+                                type="button"
+                                id="img-corretion"
+                                class="icon delete_icon"
+                                onclick="deleteIssueFunc()"
+                            ></button>
+                        </div>
+                    </div>
+                    <!--제목 출력 위치-->
+                    <div class="title_boxes">
+                        <div contenteditable="false" id="title_box" class="title_box"></div>
+                    </div>
+
+                    <div class="writer_date">
+                        <input type="text" class="userId" style="display: none" />
+                        <div class="writer_box"></div>
+                        <div class="date_box">2024-02-03</div>
+                    </div>
+
+                    <hr />
+                    <!--글 출력 위치-->
+                    <div class="content_box">
+                        <div class="icon coding_icon" id="codingIcon" onclick="codeBlockFunc()"></div>
+                        <div class="content_box_inner" id="content" contenteditable="false"></div>
+                    </div>
+
+                    <!--파일 출력 위치-->
+                    <div class="file_box"></div>
+
+                    <div class="uploadBox">
+                        <div class="uploadInner">
+                            <label for="files">
+                                <span id="filesButt" class="button_white_yellow">파일 선택</span>
+                            </label>
+                            <span id="origin_name" style="display: inline-block"></span>
+                            <input id="files" type="file" name="issue_files" multiple />
+                        </div>
+                    </div>
+
+                    <div class="save_cancle_butt">
+                        <button type="button" id="saveButt" class="button_yellow_white" onclick="saveFunc()">
+                            저장
+                        </button>
+                        <button type="button" id="cancleButt" class="button_yellow_white" onclick="cancleFunc()">
+                            취소
+                        </button>
+                    </div>
+
+                    <hr />
+                    <!--댓글 출력, 삭제하는 곳-->
+                    <div class="comment_box">
+                        <ul class="comments"></ul>
+                    </div>
+                </form>
+            </div>
+
+            <!--댓글 입력 하는 곳-->
+            <div class="writeComment_box">
+                <!-- <div class="icon coding_icon"></div> -->
+
+                <div contenteditable="true" placeholder="댓글을 입력해주세요" id="comment_write"></div>
+                <button onclick="addCommentFunc()" id="submitComment" class="button_yellow_black">작성</button>
+            </div>
+        </main>
+        <%-include('../../views/common/footer.ejs') %>
+    </body>
+    <script src="../../public/js/project/issue_content.js"></script>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gae-Call</title>
+        <link rel="stylesheet" href="../../public/css/start/pwFind.css" />
+        <link rel="stylesheet" href="../../public/css/common/font.css" />
+        <link rel="icon" href="../../../../public/img/logo.png" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <main>
+            <div id="contain">
+                <!--header 시작-->
+                <div id="header">
+                    <div id="header-img">
+                        <a href="/start" class="start-img"> <img src="../../public/img/start-dog.png" id="start-dog" /></a>
+                    </div>
+                    <p id="header-text">
+                        <a href="/start" class="start-img"><span class="header-text1">개</span>린이 <span class="header-text1">콜</span>라보</a
+                        >
+                    </p>
+                </div>
+                <div class="contentWrap">
+                <form id="find-user">
+
+                <div class="text-aria">
+
+                    <input type="email" id="email" placeholder="이메일" class="input" style="display: block;" required>
+                    <div class="gapCSS"></div>
+                    <button type="button" id="email-auth-btn" class="button_yellow_black" onclick="emailAuthPW()" style="display: block;">전송</button>
+                </div>
+                
+                <br>
+
+                <div class="text-aria" id="show">
+                    <input type="text" id="email-number" placeholder="인증번호" class="input" required>
+                    <div class="gapCSS"></div>
+                    <button type="button" id="email-auth-btn2" class="button_yellow_black" onclick="checkEmailAuthNumPW()" style="display: block;">확인</button>
+                </div>
+                
+            </form>
+        </div>
+
+            <div id="popup" style="display: none;">
+                
+                    
+                        <span class="txt">비밀번호를 변경하세요.</span>
+                        <img class="xImg" src="../public/img/close.png" alt="" onclick="closePopup()"/>
+                    
+
+                <div class="pwWrap">
+                    
+                    <label for="pwInput">비밀번호</label>
+                </br>
+                    <input type="password" id="pwInput"></input></li>
+                </br>
+                    <label id="gap1" for="pwInputAgain">비밀번호 확인</label>
+                </br>
+                    <input type="password" id="pwInputAgain"></input>
+                    <button id="close-btn" class="button_yellow_white" type="button" onclick="pwFind()">비밀번호 변경</button>
+                </div>
+            </div>
+            </div>
+           </main>
+           <script src="../../public/js/start/pwFind.js"></script>
+    </body>
+</html>

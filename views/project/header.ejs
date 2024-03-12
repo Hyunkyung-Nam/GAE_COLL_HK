@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>project_header</title>
+        <link rel="stylesheet" href="../../public/css/project/header.css" />
+        <link rel="stylesheet" href="../../public/css/common/font.css" />
+        <link rel="icon" href="../../../../public/img/logo.png" />
+        <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    </head>
+    <body>
+
+        <header id="project_header">
+            <div class="pro_header1">
+                <div class="left_wrap1_profile">
+                    <div class="projectNameWrap">
+                        <img class="projectProfile" id="projectImg" onclick="openPopupProfile()"></img>
+                        <div class="pro_name" id="pro_name" contenteditable="true">
+                    </div>    
+                        <div class="gapProfile"></div>
+                    </div>
+                    
+                    
+<!-- 이미지 수정 팝업 뜨기 -->
+                <div class="addLink profileUploadPop" id="popup2" style="display: none;">
+                    <span class="txt">수정할 이미지를 업로드해주세요.</span>
+                    <div class="profileUploads">
+                        <form id="profileForm">
+                                <!-- <span id="profileUploadBtn" class="button_white_yellow">파일 선택</span> -->
+                                <img class="xImg" src="../../../public/img/close.png" alt="" onclick="closePopupProfile()"/>
+                            
+                            <div class="profilePopContents">
+                                <label class="button_white_yellow fs" for="profileUpload">파일 선택</label>
+                                <input id="profileUpload" type="file" name="issue_files" style="display: none;" accept=".gif, .jpg, .png, .jpeg, .bmp, .tiff"/>
+                                <p id="profileName"></p>
+                                <button class="uploadsBtn" type="button" onclick="updateProfileImg()">업로드</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                    
+                        <div class="select_box"> 
+                            <!-- left_wrap -->
+                            <div id="bg" class="placement_status">
+                                <div id="blue" class="circle"></div>
+                                <div id="pro_status" class="status_txt"></div>
+                            </div>
+
+                            <ul class="option_list_profile">
+                                <li class="option_item" onclick="changeStatusToPlan()">
+                                    <div id="bg_blue" class="placement_status">
+                                        <div id="blue" class="circle"></div>
+                                        <div id="planning" class="status_txt">계획중</div>
+                                    </div>
+                                </li>
+                                <li class="option_item" onclick="changeStatusToProg()">
+                                    <div id="bg_yellow" class="placement_status">
+                                        <div id="yellow" class="circle"></div>
+                                        <div  class="status_txt">진행중</div>
+                                    </div>
+                                </li>
+                                <li class="option_item" onclick="changeStatusToSus()">
+                                    <div id="bg_purple" class="placement_status">
+                                        <div id="purple" class="circle"></div>
+                                        <div class="status_txt">중단됨</div>
+                                    </div>
+                                </li>
+                                <li class="option_item" onclick="changeStatusToFin()">
+                                    <div id="bg_green" class="placement_status">
+                                        <div id="green" class="circle"></div>
+                                        <div class="status_txt">완료</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>  
+                    </div>     
+                
+                
+                <div class="mid_wrap1_profile">
+
+                    <!--프로젝트 시작일, 마감일-->
+                    <div class="pro_date">
+                        <input type="date" id="startDate" class="dateBox" /><span class="betweenMark"> ~ </span>
+                        <input type="date" id="endDate" class="dateBox"/>
+                        <div class="projectMidIconWrap">
+                            <div class="pro_deadline"></div>
+                            <img class="pro_edit" id="dateEdit" src="../../../../public/img/edit.png" onclick="dateEdit()"></img>
+                        </div>
+                  
+                    </div>
+                    
+                </div>
+                
+                <div class="right_wrap1_profile">
+
+                    <div class="rightLogoWrap" id="mediaLogoFade">
+                        <a class="github_link"><img class="pro_github" src="../../../public/img/github.png"></img></a>
+                        <img class="pro_edit" id="githubEdit" src="../../../public/img/edit.png" onclick="openPopup()">
+                    </div>    
+                    <div class="addLink" id="popup" style="display: none;">
+                        <p class="txtLink">주소를 입력하세요</p>
+                        <img class="xImg" src="../public/img/close.png" alt="" onclick="closePopup()"/>
+                        <input id="githubLinkInput" type="text" placeholder="https://github.com/">
+                        <button class="addBtn" type="button" onclick="githubSend()">변경</button>
+                    
+                    </div>
+                </div>
+            </div>
+
+            <div class="pro_header2">
+                <div class="projectLinkWrap">
+                    <a id="home" class="pro_header2_link" href="../../project/home">홈</a>
+                    <!-- <button type="button" id="linkBold1" class="pro_header2_link" onclick="bold1Func()">홈</button> -->
+                    <a id="board_main" class="pro_header2_link" href="../../project/board_main">보드</a>
+                    <a id="calender" class="pro_header2_link" href="../../project/calender">캘린더</a>
+                    <a id="issue_main" class="pro_header2_link" href="../../project/issue_main">이슈 관리</a>
+                </div>
+                <div class="rightLogoWrap2" id="mediaLogoWrap" style="display: none;">
+                    <a class="github_link"><img class="pro_github" src="../public/img/github.png"></img></a>
+                    <img class="pro_edit" id="githubEdit" src="../public/img/edit.png" onclick="openPopup()">
+                </div>  
+            </div>
+        </header>
+       
+        <script src="../../public/js/project/header.js"></script>
+    </body>
+</html>
+
