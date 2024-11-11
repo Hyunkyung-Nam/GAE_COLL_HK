@@ -1,3 +1,9 @@
+const token = localStorage.getItem("token");
+//로그인 안되어있으면 로그인화면으로 보내기
+if (token == null) {
+    document.location.href = `/start`;
+}
+
 const statusDiv = document.querySelectorAll(".main_status_txt");
 let myjobdataByDate = [];
 let myteamLogData = [];
