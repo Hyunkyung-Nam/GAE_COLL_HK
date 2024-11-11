@@ -4,6 +4,7 @@ const router = express.Router();
 router.get("/", controller.main);
 router.get("/start", controller.start);
 router.get("/start/login", controller.login);
+//router.get("/start/testuser", controller.testuser);
 router.get("/start/signup", controller.signup);
 router.get("/start/pwFind", controller.pwFind);
 router.get("/start/idFind", controller.idFind);
