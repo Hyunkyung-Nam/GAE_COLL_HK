@@ -9,7 +9,6 @@ async function emailLogin() {
     const email = document.querySelector("#email").value;
     const password = document.querySelector("#password").value;
     const isMaintain = document.querySelector("#is-maintain").checked;
-
     if (email === "" || password === "") {
         alert("이메일 또는 비밀번호를 입력해주세요.");
         return;
